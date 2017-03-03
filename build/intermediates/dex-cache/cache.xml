@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_f9f8f4e4583c39ae631fe0421401a85448939517\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_30a47779d336f90940bffd07bf1f059a92ef2908\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bd11b3899f275668a9355f19cea2c2320f5f9d14">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.0_e7947a196e731639e5898034c06c076ccce9abce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.1_8297ed2ed9aca0213d157b3b543620c2147ff137\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6afcfbf1989631424f9ceaae6ee24777d3cf6ba">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.0_3823b8ef4e6b8f344e587e83acabac22e70f8b20\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.1_a9fb0ce53bb9c9f8416dfce672aa7e154305a964\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d8e35751afb9d302c95e61223c1c359bf93a7b9f">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_22ff3dc3f42e979db88cfd9bdc4dbb353dac64b7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a9f41e6463de88c3f979d796382fc24fb7e9cd41">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.0_7edcfb1aa8aec0b5f6d9d1a1fd81d94efa47138a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bac3219dc42c4e002f48ddf54c8fbbeddec9a1d7">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_677ba20ec94d03f75c68e2aea252490ce9f7fdb0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_e4384c7f32971bdc364ac40cc2c76589030cb78c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="db0a4170961a16af6d7a5222bf90a5876eea4227">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.0_f26769227a3c8088c8aca88b6ae779f360525807\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5243af50631020511cf2403789678149b1a319e6">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.0_cef781bd3b5de009d4b315ac6a253d4c8a7f0950\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_2aad3d6ad4ecdf16f053049ed224e6772e7254c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_e0167c1f463d9859b801f221b0fa8b60ec8280d3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_e4e3c2927cfd8bbc662f238e845d5239f7678dbe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93a0248fe0524b4fa2d16f5f7c3cff8452796454">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.0_1ef9f2c2e2d14df53311fe1857f3977a22d14eda\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="74d1712880eb2b4ab37ddf3c6a3232c883756726">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.0_41a7efc10fd2fd656c421c2d102290a782ea7416\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_0db53329fa470acc40e11cd58666d248b58dfba6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="614b2ffd04818e865e1c02cc149c6b92e518e862">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.0_60b37f6d90dd743d166acff2d06a99e8eace693b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_e15196fef0ef43bcd5a15ac786864d4b2fe59761\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_f9392b25e3f9351a97384c1c11f4f5616c8ca9ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="580fa73d5bf63ffd04b9d66d0e75a2ed21842702">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.6.0_66dc7910a1ca4cce4817715088e9d2d4cac6ab4b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a343e17f154f513a09c12946fae0f172be079ec">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.6.0_0e5e31b97b3241ec70044aef1ee4b2e141759e60\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f861fce2e9fa167e7fe8d8558cf2cbb910b9fb34">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.6.0_531157e56544cfa7346a051f1182553f68579309\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_96cfb6d5dec440229dfcbe3f91d2d980dcba1e71\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d39f676be8400123523882d189a1d84040d34339">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.0_9ba666128b426376c45c837c0119a7cbbea13625\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joon.Y.K\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Project (Fix)\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_d13c8eb4aa50c0fbe9ab5ccadab14831e7b537a9\classes.dex" />
+    </item>
+
+</items>

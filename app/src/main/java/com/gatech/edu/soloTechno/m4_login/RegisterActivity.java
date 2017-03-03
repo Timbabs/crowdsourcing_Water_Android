@@ -255,14 +255,14 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "Log in failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-<<<<<<< HEAD
+
                             Log.d(TAG, "Authentication successful");
-=======
+
                             // Sign user in with email
                             Log.d(TAG, "Log in successful");
                             //    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                             //   startActivity(mainActivity);
->>>>>>> d9a8e81a072528dc447973102a344f1435d859f8
+
                         }
                     }
                 });
