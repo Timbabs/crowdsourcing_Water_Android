@@ -31,6 +31,10 @@
             android:name="com.gatech.edu.soloTechno.m4_login.RegisterActivity"
             android:label="RegisterActivity">
         </activity>
+        <activity
+            android:name="com.gatech.edu.soloTechno.m4_login.WaterReportActivity"
+            android:label="WaterReportActivity">
+        </activity>
     </application>
 
 </manifest>

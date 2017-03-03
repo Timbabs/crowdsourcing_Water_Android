@@ -8,6 +8,7 @@
     <string name="action_register">Register</string>
     <string name="action_log_out">Log out</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="action_save">Save</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
@@ -16,7 +17,13 @@
         completions."
     </string>
     <string name="auth_failed">Invalid login attempt. Please try again.</string>
-    <string name="drawer_edit_profile">Edit profile</string>
+    <string name="drawer_edit_profile">Edit Profile</string>
+    <string name="drawer_water_report">Water Report</string>
+
+    <string name="pick_date">pick date</string>
+    <string name="water_report_number_input">Water report number</string>
+    <string name="water_report_username_input">Your name</string>
+    <string name="water_report_location_input">Location</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

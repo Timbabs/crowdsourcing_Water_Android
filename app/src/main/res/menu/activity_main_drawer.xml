@@ -7,6 +7,10 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/drawer_edit_profile"/>
         <item
+            android:id="@+id/nav_water_report"
+            android:icon="@drawable/ic_local_drink_black_24dp"
+            android:title="@string/drawer_water_report"/>
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
             android:title="@string/action_log_out"/>

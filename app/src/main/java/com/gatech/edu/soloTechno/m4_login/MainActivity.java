@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_edit_profile) {
             Intent editProfileActivity = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(editProfileActivity);
+        } else if (id == R.id.nav_water_report) {
+            Intent waterReportActivity = new Intent(getApplicationContext(), WaterReportActivity.class);
+            startActivity(waterReportActivity);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
