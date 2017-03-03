@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "386348255766",
+    "firebase_url": "https://solowater-ef20d.firebaseio.com",
+    "project_id": "solowater-ef20d",
+    "storage_bucket": "solowater-ef20d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386348255766:android:c840937a49ef1b2d",
+        "android_client_info": {
+          "package_name": "com.gatech.edu.soloTechno.m4_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386348255766-jf8t4p0v522oi2rtvcfc6qi8ssjbaji4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpUFhB0Nmzo9_DnnJZHmSncn4H9zIUR6k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
