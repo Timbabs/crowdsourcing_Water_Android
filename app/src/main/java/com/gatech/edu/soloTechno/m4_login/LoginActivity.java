@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final int REQUEST_READ_CONTACTS = 0;
 
 
-    // UI references.
+    // UI references. ..
     private AutoCompleteTextView mEmailView;
 
     private EditText mPasswordView;
