@@ -21,6 +21,7 @@
     <string name="drawer_water_report">Water Report</string>
 
     <string name="pick_date">pick date</string>
+    <string name="pick_time">pick time</string>
     <string name="water_report_number_input">Water report number</string>
     <string name="water_report_username_input">Your name</string>
     <string name="water_report_location_input">Location</string>

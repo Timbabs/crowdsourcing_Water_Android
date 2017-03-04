@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="water_condition_array">
-        <item>Clean</item>
-        <item>Moderate</item>
-        <item>Bad</item>
+        <item>Waste</item>
+        <item>Treatable-Clear</item>
+        <item>Treatable-Muddy</item>
+        <item>Potable</item>
     </string-array>
 </resources>

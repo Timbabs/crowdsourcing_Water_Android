@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 /**
  * Created by Joshua on 3/3/2017.
@@ -28,7 +29,16 @@ public class DatePickerFragment extends DialogFragment
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
+    /*
+    * Sets a date of user input
+    *
+    * @params view Datepicker view
+    * @params year int value of year
+    * @params month int value of month
+    * @params day int value of day
+    * */
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Do something with the date chosen by the user
+        TextView tv1 = (TextView) getActivity().findViewById(R.id.pick_date_input);
+        tv1.setText(view.getMonth() + 1 + "/" + view.getDayOfMonth() + "/" + view.getYear());
     }
 }
