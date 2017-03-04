@@ -7,11 +7,17 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -19,24 +25,33 @@ import java.util.Random;
  */
 
 public class WaterReportActivity extends FragmentActivity {
+    private EditText location;
+    private EditText name;
+    private EditText waterReportNumber;
+    private Spinner waterTypeSpinner;
+    private Spinner waterConditionSpinner;
+    private Button saveButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_report);
 
-        Button saveButton = (Button) findViewById(R.id.save_button);
+        saveButton = (Button) findViewById(R.id.save_button);
+        name = (EditText) findViewById(R.id.water_report_username);
+        location = (EditText) findViewById(R.id.water_report_location);
+        final DatabaseReference myFirebaseRef = FirebaseDatabase.getInstance().getReference("water reports");
 
         // initially auto generated code for water report
         final Random rand = new Random();
-        EditText waterReportNumber = (EditText) findViewById(R.id.water_report_number);
+        waterReportNumber = (EditText) findViewById(R.id.water_report_number);
         waterReportNumber.setEnabled(false);
         // ramdom number range from 1 to 1000
         waterReportNumber.setText(Integer.toString(rand.nextInt(1000) + 1));
 
         // water type & condition spinners
-        Spinner waterTypeSpinner = (Spinner) findViewById(R.id.water_type_spinner);
-        Spinner waterConditionSpinner = (Spinner) findViewById(R.id.water_condition_spinner);
+        waterTypeSpinner = (Spinner) findViewById(R.id.water_type_spinner);
+        waterConditionSpinner = (Spinner) findViewById(R.id.water_condition_spinner);
 
         ArrayAdapter<CharSequence> waterTypeAdapter = ArrayAdapter.createFromResource(this,
                 R.array.water_type_array, android.R.layout.simple_spinner_item);
@@ -52,6 +67,13 @@ public class WaterReportActivity extends FragmentActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // pending:: submit water report to firebase DB
+                Map<String,String> wReport = new HashMap<>();
+                wReport.put("Water Report Number", waterReportNumber.getText().toString());
+                wReport.put("Name", name.getText().toString());
+                wReport.put("Location", location.getText().toString());
+                wReport.put("Water Type", waterTypeSpinner.getSelectedItem().toString());
+                wReport.put("Water Condition", waterConditionSpinner.getSelectedItem().toString());
+                myFirebaseRef.push().setValue(wReport);
 
                 // when successfully saved user water report, direct user to main screen
                 Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
