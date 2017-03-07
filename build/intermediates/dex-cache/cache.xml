@@ -3,246 +3,228 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_15f0eab4b6fca524977655a9eb79c249a5415e5c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="574aca95cae4f53d5753a6534291b7a527a9a5a2">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_11685fe58f1bb62cefaa59d93ebc779183eeaeb8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_2a9c9ef04a06495bc86469fca3fdfe7ad3090cb3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_447cce2ab38ee512fa1481473d199b1095f39a13\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="db0a4170961a16af6d7a5222bf90a5876eea4227">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.0_1738fcf121f25cb72dcdaaa595fa4b58a5a52acb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.1_bf0ae6b6793c3c91deaa19fc043961635ba38031\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_953c4ede0a847d033c0e66be885e1c886cdbe3be\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="93a0248fe0524b4fa2d16f5f7c3cff8452796454">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.0_2b67f9b8b5c1cbb946128c3b1102419d8a1a2e7e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_dd02c7c2526f6d7b15353f818099b61fb5023b49\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_ed1792cbb9e7802e18c5b44f5f552c950db1e813\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="28ceb4a74337a5707b6d6aec50ec50090c94f94f">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_315e0a5dcc2aaa1f41acf905b7c15622d1ebab40\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f6afcfbf1989631424f9ceaae6ee24777d3cf6ba">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.0_91ea90cc4a114d03edff1e355eed3364905506d2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a9f41e6463de88c3f979d796382fc24fb7e9cd41">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.0_f0940a04ef64f56926f2e2a8d32b46f66b0c3947\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="580fa73d5bf63ffd04b9d66d0e75a2ed21842702">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.6.0_072e6b08c346c520ff2a1bdad37ca34c927947da\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_8f04eacfa121c36100dc8400e54f1ef9d7b109c4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="614b2ffd04818e865e1c02cc149c6b92e518e862">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.0_f73a504891c1bbe4d7b6850047611c5d1166aa07\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_d58f8e0e580337bddfa24da163179bf331653d74\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5243af50631020511cf2403789678149b1a319e6">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.0_64f3a3813dad6480046575531d170d0e7693476f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7a343e17f154f513a09c12946fae0f172be079ec">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.6.0_23072b5de426d8771774c1ef1228a1751c843305\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.1_e239e882e4d53222d6cfca18816b9388de250ffa\classes.dex" />
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.1_18f0fc4df49eee127618eb0e6fe09ae32deed4c7/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.0\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="74d1712880eb2b4ab37ddf3c6a3232c883756726">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.0_58acc0757ddee9a420a6b816507ff7a00db3155b\classes.dex" />
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_6358ee9b95152465dc4492cace79bf6deb3e54ea/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.0\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bd11b3899f275668a9355f19cea2c2320f5f9d14">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.0_1f7354c909da983dbc86fbfd56d6e1fc8a5cbb44\classes.dex" />
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.1_405d446b59d0f79586284cd1bd527080e17afb6b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.1_7039cb1914de7caafc84abce06dd5846da16ad52/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_207218d04b77ab8d6d1676bba0665cf87f3a716d\classes.dex" />
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_a37b75219975b9a2a769358228c41a05fab1b89d/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.6.0\jars\classes.jar"
+        jar="/Users/timothybaba/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f861fce2e9fa167e7fe8d8558cf2cbb910b9fb34">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.6.0_1a03f3c16c3b2da07b8e9d7c0d41b0bb149ddb60\classes.dex" />
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_100142060ca27c42b510a4bafd0cea6482bda687/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.0\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d39f676be8400123523882d189a1d84040d34339">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.0_b1b44e34d9f3eb63ca6a00e7fab4d97b6bd2c342\classes.dex" />
+        sha1="deecc85d56bda7bb5219f03e9b07a1cf477c9b79">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_5298e4cc2714fecacc660c26f109b86f1cdcf54b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_63ec04a7defebccba971e15021fcf48284739aee\classes.dex" />
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_34c40a7cccd1cb0a81356519d528186f6125f462/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_f8a19d342bb88afe001a2dda1166931f70742d8a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_53c8d193cfd4ae67a72e6a577f9a08b334d03a64/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_b08873a239fedb8659eb4e6a0da9a577d6811676/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="C:\Users\asus\Desktop\Spring 2017\CS 2340\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_e70d063bf6b9e03cb95c9fd33a68f7ba3accb1a4\classes.dex" />
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_8e4d2a8cbdfc972429e1f8500b7b4a0e12a43f0f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_64693047b8f23b439107cff168cdccdecf56b741/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_e9d715074ccf2bdafbd3c25722fb999b92e2142a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_9877fec38265602e3a068d4df1a26724c02e6ac4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_68f942169142c8cce9db42171301fad5fe8f6041/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_1d6c6c9ea573790c53f597f053220c259d9897a3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_faf5abfe296cee18daf72be0f7331eb5b5bb8206/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dad3e40924ccb4e7db0d37f4272d396292c3f5c6">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9407692393bb6d74a873f93acd56862854d479c6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.0.1_711a489de7fa8f978de88d71397c57425807ada4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_6d1ef0f725279b2fe6a4eeaef0d894710ea64e0d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_77209beb457ee54de55c4409942079e46ba7aee2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_ddd0ed73a958c6162768ab085e47b4a30425e6eb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_e376f216bbfdffe04e377d0674c389af47067c44/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_37f504b8d67893531afadda6e76d67d335bb9adf/classes.dex" />
     </item>
 
 </items>

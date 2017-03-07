@@ -1,4 +1,4 @@
-package com.gatech.edu.soloTechno.m4_login;
+package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.gatech.edu.soloTechno.m4_login.R;
+import com.gatech.edu.soloTechno.m4_login.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,11 +30,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import static android.R.attr.name;
+import static android.R.string.cancel;
 
 
 /**
@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email_text;
     private EditText password_text;
     private EditText confirmPassword_text;
+    private Button saveButton;
 
     /**
      * variables to hold data retrieved from widgets
@@ -57,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String accountType;
     private String email;
     private String password;
-    private String firstName;
+    static String firstName;
     private String lastName;
     private String confirmPassword;
     private boolean validEmail;
@@ -67,16 +68,17 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean edit = false;
 
     // firebase
-    private DatabaseReference mDatabase;
-    private String mUserId;
+
     private FirebaseUser mFirebaseUser;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private FirebaseAuth mAuth;
+    static FirebaseAuth mAuth;
     public static final String TAG = RegisterActivity.class.getSimpleName();
     private ProgressDialog mAuthProgressDialog;
-    private DatabaseReference myRootRef;
 
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
 
+    private String userId;
 
     public static List<String> accounts = Arrays.asList("Manager", "Worker", "Admin", "User");
 
@@ -102,9 +104,9 @@ public class RegisterActivity extends AppCompatActivity {
          * Creates an object that accesses the tools provided in the Firebase Authentication SDK
          */
         mAuth = FirebaseAuth.getInstance();
-        myRootRef = FirebaseDatabase.getInstance().getReference();
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
-        if (mAuth.getCurrentUser() != null) {
+        /*if (mAuth.getCurrentUser() != null) {
             ValueEventListener postListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -117,38 +119,10 @@ public class RegisterActivity extends AppCompatActivity {
                     // ...
                 }
             };
-            myRootRef.addValueEventListener(postListener);
-        }
+            mFirebaseDatabase.addValueEventListener(postListener);
+        }*/
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                mFirebaseUser = firebaseAuth.getCurrentUser();
-                if (mFirebaseUser != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + mFirebaseUser.getUid());
-                    email_text.setText(mFirebaseUser.getEmail());
-                    firstName_text.setText(mFirebaseUser.getDisplayName());
 
-                    // We move to to the Main Activity only when we validate the user has been
-                    // created iin firebase
-                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-
-                    // We only populate the database with the user's info when we validate the user
-                    // has been successfully created in firebase
-                    createFirebaseUserProfile(mFirebaseUser);
-
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // [START_EXCLUDE]
-                // [END_EXCLUDE]
-            }
-        };
 
 
         /**
@@ -156,12 +130,72 @@ public class RegisterActivity extends AppCompatActivity {
          * once the button is pressed
          */
 
-        final Button saveButton = (Button) findViewById(R.id.save_button);
+        saveButton = (Button) findViewById(R.id.save_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                submitForm();
+                accountType = accountTypeSpinner.getSelectedItem().toString().trim();
+                email = email_text.getText().toString().trim();
+                password = password_text.getText().toString().trim();
+                firstName = firstName_text.getText().toString().trim();
+                lastName = lastName_text.getText().toString().trim();
+                confirmPassword = confirmPassword_text.getText().toString().trim();
+                validEmail = isValidEmail(email);
+                validFirstName = isValidName(firstName);
+                validLastName = isValidName(lastName);
+                validPassword = isValidPassword(password, confirmPassword);
+
+                if (!validEmail || !validFirstName || !validLastName || !validPassword) return;
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
+                createAuthProgressDialog();
+                mAuthProgressDialog.show();
+
+
+              //  if(mAuth.getCurrentUser() != null){
+               //     mAuth.getCurrentUser().updatePassword(confirmPassword);
+                //} else {
+                    //create user
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                    mAuthProgressDialog.dismiss();
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "Sorry, an account with this email already exist",
+                                               Toast.LENGTH_SHORT).show();
+                                        email_text.setError("Try with another email account");
+                                        View focusView = email_text;
+                                        focusView.requestFocus();
+                                        return;
+                                    } else {
+                                        Log.d(TAG, "Authentication successful");
+
+                                        submitForm();
+                                    }
+                                }
+                            });
+               // }
+                createAuthStateListener();
+
             }
         });
+
+
 
         /**
          * set up adapter to display the account types in the spinner
@@ -191,58 +225,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void submitForm() {
 
-        accountType = accountTypeSpinner.getSelectedItem().toString().trim();
-        email = email_text.getText().toString().trim();
-        password = password_text.getText().toString().trim();
-        firstName = firstName_text.getText().toString().trim();
-        lastName = lastName_text.getText().toString().trim();
-        confirmPassword = confirmPassword_text.getText().toString().trim();
-        validEmail = isValidEmail(email);
-        validFirstName = isValidName(firstName);
-        validLastName = isValidName(lastName);
-        validPassword = isValidPassword(password, confirmPassword);
 
-        if (!validEmail || !validFirstName || !validLastName || !validPassword) return;
-
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-
-
-        createAuthProgressDialog();
-        mAuthProgressDialog.show();
-
-
-        if(mAuth.getCurrentUser() != null){
-            mAuth.getCurrentUser().updatePassword(confirmPassword);
-        } else {
-            //create user
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            mAuthProgressDialog.dismiss();
-                            // If sign in fails, display a message to the user. If sign in succeeds
-                            // the auth state listener will be notified and logic to handle the
-                            // signed in user can be handled in the listener.
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                Log.d(TAG, "Authentication successful");
-                                createFirebaseUserProfile(task.getResult().getUser());
-                            }
-                        }
-                    });
-        }
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -254,28 +237,53 @@ public class RegisterActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(RegisterActivity.this, "Log in failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
+
                         } else {
 
                             Log.d(TAG, "Authentication successful");
 
-                            // Sign user in with email
-                            Log.d(TAG, "Log in successful");
+
                             //    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                             //   startActivity(mainActivity);
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
 
                         }
                     }
                 });
     }
 
+    private void createAuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    createFirebaseUserProfile(user);
+
+                    /*Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();*/
+                }
+            }
+
+
+        };
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
     /**
      * Adds the authentication state listener to the Firebase Authentication object
      */
-    @Override
+   /* @Override
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-    }
+    }*/
 
     /**
      * removes the authentication state listener before the RegisterActivity is destroyed
@@ -355,25 +363,35 @@ public class RegisterActivity extends AppCompatActivity {
                 .setDisplayName(firstName)
                 .build();
 
-        myRootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference firstNameRef =  myRootRef.child("First Name");
-        firstNameRef.setValue(firstName);
-        DatabaseReference lastNameRef =  myRootRef.child("Last Name");
-        lastNameRef.setValue(lastName);
-        DatabaseReference accountTypeRef =  myRootRef.child("Account Type");
-        accountTypeRef.setValue(accountType);
-
         user.updateProfile(addProfileName)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
 
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, user.getDisplayName());
+                            //Log.d(TAG, user.getDisplayName());
+                            Log.d(TAG, "");
                         }
                     }
 
                 });
+
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        // get reference to 'users' node
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+        // store app title to 'app_title' node
+        mFirebaseInstance.getReference("soloWater").setValue("Realtime Database");
+
+            userId = mAuth.getCurrentUser().getUid();
+            //userId = mFirebaseDatabase.push().getKey();
+
+        User mUser = new User(firstName, lastName, accountType, email);
+
+        mFirebaseDatabase.child(userId).setValue(mUser);
+
+
+
+
     }
 }
 

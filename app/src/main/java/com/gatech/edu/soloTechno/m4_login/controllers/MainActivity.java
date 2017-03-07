@@ -1,4 +1,4 @@
-package com.gatech.edu.soloTechno.m4_login;
+package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.gatech.edu.soloTechno.m4_login.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -51,7 +52,11 @@ public class MainActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                    getSupportActionBar().setTitle("Welcome, " + RegisterActivity.firstName + "!");
+                    if (getSupportActionBar().getTitle().equals("Welcome, null!")) {
+                        getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                    }
+
                 }
             }
         };
@@ -86,8 +91,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(logoutActivity);
             finish();
         } else if (id == R.id.nav_edit_profile) {
-            Intent editProfileActivity = new Intent(getApplicationContext(), RegisterActivity.class);
+            Intent editProfileActivity = new Intent(getApplicationContext(), EditProfileActivity.class);
+            editProfileActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(editProfileActivity);
+            finish();
+
         } else if (id == R.id.nav_water_report) {
             Intent waterReportActivity = new Intent(getApplicationContext(), WaterReportActivity.class);
             startActivity(waterReportActivity);

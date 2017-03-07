@@ -1,4 +1,4 @@
-package com.gatech.edu.soloTechno.m4_login;
+package com.gatech.edu.soloTechno.m4_login.model;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -9,6 +9,8 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import com.gatech.edu.soloTechno.m4_login.R;
 
 /**
  * Created by Joshua on 3/3/2017.

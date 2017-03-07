@@ -1,18 +1,18 @@
-package com.gatech.edu.soloTechno.m4_login;
+package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
+import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
+import com.gatech.edu.soloTechno.m4_login.R;
+import com.gatech.edu.soloTechno.m4_login.model.TimePickerFragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

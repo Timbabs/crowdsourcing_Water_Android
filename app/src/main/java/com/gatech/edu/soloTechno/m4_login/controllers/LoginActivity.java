@@ -1,11 +1,10 @@
-package com.gatech.edu.soloTechno.m4_login;
+package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,14 +31,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gatech.edu.soloTechno.m4_login.R;
+import com.gatech.edu.soloTechno.m4_login.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -59,12 +68,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private DatabaseReference mFirebaseDatabase;
 
     /**
      * Creates an instance of Firebase authentication
      */
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    static FirebaseAuth mAuth;
+    static FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         /**
          * Checks the current state of the user. Whether the user is still signed in or not
          */
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        /*mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -118,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     // User is signed out
                 }
             }
-        };
+        };*/
 
 
 
@@ -229,6 +239,52 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             signIn(email, password);
+            mAuthListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user != null) {
+                        // User is signed in
+                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainActivity);
+                        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
+
+                        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
+
+                                UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(user.firstName)
+                                        .build();
+
+                                mAuth.getCurrentUser().updateProfile(addProfileName)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    //Log.d(TAG, user.getDisplayName());
+                                                   // Log.d(TAG, "");
+                                                }
+                                            }
+
+                                        });
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                               // Log.w(TAG, "Failed to read value.");
+                            }
+                        });
+
+                    } else {
+                        // User is signed out
+                    }
+                }
+            };
+            mAuth.addAuthStateListener(mAuthListener);
+
         }
     }
 
@@ -337,11 +393,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView.setAdapter(adapter);
     }
 
-    @Override
+    /*@Override
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-    }
+    }*/
 
     @Override
     public void onStop() {
@@ -389,8 +445,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         mPasswordView.requestFocus();
                     } else {
                         // Sign user in with email
-                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainActivity);
+
+                       // Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                       // startActivity(mainActivity);
                     }
                 }
             });
