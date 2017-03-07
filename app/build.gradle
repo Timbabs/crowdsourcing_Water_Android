@@ -25,13 +25,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-<<<<<<< HEAD
-    compile 'com.google.firebase:firebase-auth:10.0.1'
-    compile 'com.google.firebase:firebase-core:10.0.1'
-    compile 'com.google.firebase:firebase-database:10.0.1'
-=======
->>>>>>> 03ae879123c31051e4f1dbf2c97904df042b200d
-
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support:design:25.1.1'
     compile 'com.google.firebase:firebase-auth:10.0.1'
