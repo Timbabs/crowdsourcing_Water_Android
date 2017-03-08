@@ -1,4 +1,4 @@
-package com.gatech.edu.soloTechno.m4_login;
+package com.gatech.edu.soloTechno.m4_login.model;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.gatech.edu.soloTechno.m4_login.ItemFragment.OnListFragmentInteractionListener;
+import com.gatech.edu.soloTechno.m4_login.R;
+import com.gatech.edu.soloTechno.m4_login.model.ItemFragment.OnListFragmentInteractionListener;
 import com.gatech.edu.soloTechno.m4_login.dummy.DummyContent.DummyItem;
 
 import java.util.List;

@@ -245,7 +245,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             //    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                             //   startActivity(mainActivity);
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             finish();
@@ -385,7 +385,7 @@ public class RegisterActivity extends AppCompatActivity {
             userId = mAuth.getCurrentUser().getUid();
             //userId = mFirebaseDatabase.push().getKey();
 
-        User mUser = new User(firstName, lastName, accountType, email);
+        User mUser = new User(firstName, lastName, accountType, email, password);
 
         mFirebaseDatabase.child(userId).setValue(mUser);
 

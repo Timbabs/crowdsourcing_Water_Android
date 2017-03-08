@@ -3,8 +3,11 @@ package com.gatech.edu.soloTechno.m4_login.controllers;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,7 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.Random;
+
 
 /**
  * Created by timothybaba on 3/6/17.
@@ -86,7 +89,7 @@ public class EditProfileActivity extends AppCompatActivity {
         lastName_text = (EditText) findViewById(R.id.last_Name);
         email_text = (EditText) findViewById(R.id.email);
         password_text = (EditText) findViewById(R.id.password);
-        confirmPassword_text = (EditText) findViewById(R.id.password);
+        confirmPassword_text = (EditText) findViewById(R.id.confirm_Password);
 
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
         //set user's info
@@ -106,6 +109,8 @@ public class EditProfileActivity extends AppCompatActivity {
                     firstName_text.setText(user.firstName);
                     lastName_text.setText(user.lastName);
                     email_text.setText(user.email);
+                    password_text.setText(user.password);
+                    confirmPassword_text.setText(user.password);
                 Random rand = new Random();
                 accountTypeSpinner.setSelection(rand.nextInt(4));
 
@@ -116,6 +121,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.");
             }
         });
+
+
 
        // firstName_text.setText(mAuth.getCurrentUser().getDisplayName());
        // email_text.setText(mAuth.getCurrentUser().getEmail());
@@ -130,7 +137,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 createAuthProgressDialog();
-               // mAuthProgressDialog.show();
+                //mAuthProgressDialog.show();
 
                 //get user's info
                 accountType = accountTypeSpinner.getSelectedItem().toString().trim();
@@ -211,8 +218,8 @@ public class EditProfileActivity extends AppCompatActivity {
                                             }
                                         }
                                     });*/
-
-                            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                           // mAuthProgressDialog.dismiss();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             //finish();
@@ -226,13 +233,21 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 };
                 mAuth.addAuthStateListener(mAuthListener);
-               // mAuthProgressDialog.dismiss();
+
 
             }
 
         });
 
     }
+
+   @Override
+    public void onBackPressed() {
+       Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+       finish();
+       startActivity(intent);
+    }
+
 
     private void createAuthProgressDialog() {
         mAuthProgressDialog = new ProgressDialog(this);
