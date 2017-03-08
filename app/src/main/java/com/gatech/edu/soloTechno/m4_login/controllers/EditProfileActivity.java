@@ -3,11 +3,8 @@ package com.gatech.edu.soloTechno.m4_login.controllers;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
+import java.util.Random;
 
 /**
  * Created by timothybaba on 3/6/17.
@@ -122,8 +119,6 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
-
-
        // firstName_text.setText(mAuth.getCurrentUser().getDisplayName());
        // email_text.setText(mAuth.getCurrentUser().getEmail());
        // password_text.setText(LoginActivity.mAuth.getCurrentUser().getProviderData().);
@@ -137,7 +132,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 createAuthProgressDialog();
-                //mAuthProgressDialog.show();
+               // mAuthProgressDialog.show();
 
                 //get user's info
                 accountType = accountTypeSpinner.getSelectedItem().toString().trim();
@@ -173,12 +168,13 @@ public class EditProfileActivity extends AppCompatActivity {
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("lastName").setValue(lastName);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("accountType").setValue(accountType);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("email").setValue(email);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("password").setValue(password);
                             mAuth.getCurrentUser().updateEmail(email);
                             mAuth.getCurrentUser().updatePassword(password);
 
 
 
-                           UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                            UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(RegisterActivity.firstName)
                                     .build();
 
@@ -218,8 +214,8 @@ public class EditProfileActivity extends AppCompatActivity {
                                             }
                                         }
                                     });*/
-                           // mAuthProgressDialog.dismiss();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             //finish();
@@ -233,21 +229,13 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 };
                 mAuth.addAuthStateListener(mAuthListener);
-
+               // mAuthProgressDialog.dismiss();
 
             }
 
         });
 
     }
-
-   @Override
-    public void onBackPressed() {
-       Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-       finish();
-       startActivity(intent);
-    }
-
 
     private void createAuthProgressDialog() {
         mAuthProgressDialog = new ProgressDialog(this);

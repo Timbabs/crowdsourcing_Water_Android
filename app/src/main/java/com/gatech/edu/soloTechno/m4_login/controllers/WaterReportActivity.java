@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
+import com.gatech.edu.soloTechno.m4_login.dummy.DummyContent;import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.TimePickerFragment;
 import com.google.firebase.database.DatabaseReference;

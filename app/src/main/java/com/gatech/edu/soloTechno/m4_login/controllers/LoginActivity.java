@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -142,6 +140,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
     }
 
+
     /*
     * populates auto completion
     *
@@ -246,8 +245,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     if (user != null) {
                         // User is signed in
-                        //Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        //startActivity(mainActivity);
+                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainActivity);
                         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
                         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
@@ -447,8 +446,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     } else {
                         // Sign user in with email
 
-                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainActivity);
+                       // Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                       // startActivity(mainActivity);
                     }
                 }
             });
