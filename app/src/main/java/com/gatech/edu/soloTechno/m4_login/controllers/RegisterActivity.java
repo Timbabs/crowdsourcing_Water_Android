@@ -385,7 +385,7 @@ public class RegisterActivity extends AppCompatActivity {
             userId = mAuth.getCurrentUser().getUid();
             //userId = mFirebaseDatabase.push().getKey();
 
-        User mUser = new User(firstName, lastName, accountType, email);
+        User mUser = new User(firstName, lastName, accountType, email, password);
 
         mFirebaseDatabase.child(userId).setValue(mUser);
 

@@ -12,16 +12,18 @@ public class User {
     public String lastName;
     public String accountType;
     public String email;
+    public String password;
 
     public User() {
 
     }
 
-    public User (String firstNameame, String lastName, String accountType, String email)  {
+    public User (String firstNameame, String lastName, String accountType, String email, String password)  {
         this.firstName = firstNameame;
         this.lastName = lastName;
         this.accountType = accountType;
         this.email = email;
+        this.password = password;
     }
 }
 

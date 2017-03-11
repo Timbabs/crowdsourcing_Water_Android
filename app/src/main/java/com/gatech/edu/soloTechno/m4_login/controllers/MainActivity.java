@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + RegisterActivity.firstName + "!");
-                    if (getSupportActionBar().getTitle().equals("Welcome, null!")) {
-                        getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                    if (RegisterActivity.firstName!= null && user.getDisplayName() != RegisterActivity.firstName) {
+                        getSupportActionBar().setTitle("Welcome, " + RegisterActivity.firstName + "!");
                     }
                     initMap();
                 }
@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity
         };
     }
 
+    /*
+    * Initializes Google map
+    *
+    * */
     private void initMap() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

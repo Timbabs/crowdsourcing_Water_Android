@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -86,7 +87,7 @@ public class EditProfileActivity extends AppCompatActivity {
         lastName_text = (EditText) findViewById(R.id.last_Name);
         email_text = (EditText) findViewById(R.id.email);
         password_text = (EditText) findViewById(R.id.password);
-        confirmPassword_text = (EditText) findViewById(R.id.password);
+        confirmPassword_text = (EditText) findViewById(R.id.confirm_Password);
 
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
         //set user's info
@@ -106,6 +107,8 @@ public class EditProfileActivity extends AppCompatActivity {
                     firstName_text.setText(user.firstName);
                     lastName_text.setText(user.lastName);
                     email_text.setText(user.email);
+                    password_text.setText(user.password);
+                    confirmPassword_text.setText(user.password);
                 Random rand = new Random();
                 accountTypeSpinner.setSelection(rand.nextInt(4));
 
@@ -166,12 +169,13 @@ public class EditProfileActivity extends AppCompatActivity {
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("lastName").setValue(lastName);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("accountType").setValue(accountType);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("email").setValue(email);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("password").setValue(password);
                             mAuth.getCurrentUser().updateEmail(email);
                             mAuth.getCurrentUser().updatePassword(password);
 
 
 
-                           UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                            UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(RegisterActivity.firstName)
                                     .build();
 
@@ -232,6 +236,14 @@ public class EditProfileActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        //finish();
     }
 
     private void createAuthProgressDialog() {

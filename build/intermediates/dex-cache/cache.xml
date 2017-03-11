@@ -3,116 +3,26 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Joshua\.android\build-cache\79ab4d1a8e50a4835b33e4b0cd9ea422bf5c27b5\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-10.0.1_83de567d652a62e464cc14219f7d4226fead7367.jar" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_c7e372e8772d463aa6dfec53b13e24a4bdb87969.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Joshua\.android\build-cache\514b1dc7bc672c3ffa5a4cbeebc6b6ce894c2918\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.1_56cc97113b87fbd631a00fd99916b7ce9b061f0f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.1_ebaac12dea0449447deb2288e0ede59ab5865415.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.1_3db573979cb3a0ead634338f8742403dae2019bf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="15a5ef25bb9330b84707735987f2f36abb4824ff">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_75f0e39a015bbb5b4f7152f606aa66ff8386665d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-connection-10.0.1_cbe1d08c233c5bea4116c9f74fd59bf55f5d605f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.1_5b6226be9707bf01d01d7329fdb08432a1bac9a9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.1_d3a3f885047814fa6b425fa2cae33bde58a02a50.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.1_831d7877353b02661b0e186ac5fc1781408d57b1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-10.0.1_5b835f8e0e2fb16e855a72f735459cbfd854394d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-auth-10.0.1_7c184fc4e303580b22f3eca3c15e307a293fb1da.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-10.0.1_84045ee37cd57aa78c2458b4074ff95f299f46ee.jar" />
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_24faa2fa4957b070cb90d576ef239037d5876013.jar" />
     </item>
     <item
         is-multidex="false"
         jar="C:\Users\Joshua\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
@@ -120,120 +30,192 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Joshua\.android\build-cache\30214e06a3322b41206bc919f3e919dd02e8ebda\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-10.0.1_11607709f3bed87b68e7375b48bb178f1a63f09c.jar" />
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_f3ce0d14c50077fbc0a090c018e0cd02b1adfb02.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.1_20ee0fa79e2f2b7aad5c6ea244fd6cd275537681.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.1_e8d8e23e5c48477ab85626804e4555680afe6615.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.1_17fc812227d56c9d880552c35adece239f3ca3b7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.1_279ee69dc2ea3606dd010bd7bf88db12f87f0bf0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.1_f5f7bfd58a12759745304f5166b20d537e45443c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-10.0.1_760a97e63bb4df5069b3c9156e2f609d02dc4fcc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-10.0.1_6af1c2e4d6e4565bd51ddebbb30ec3ab6df8653a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-10.0.1_e575c9d7a3fdb6d72a84e3fa46d4d56130ac2d25.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-10.0.1_f96459dd038c2a4a327bbd42868dd9b52bb97eec.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Joshua\.android\build-cache\b12f8f9d0bdb0e0b23c3955f47e876538cf61049\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-10.0.1_a192e4e359b52d2b079540b78ea2425fdeb5449f.jar" />
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_df23389e93f1266166286d499c1a21e99d96e5bf.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Joshua\.android\build-cache\0410056a11e9e8fa49f86cd05f1a570c5f77dcc9\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.1_dbf562ad1b94ab54156f77be2ec2c82a0594104d.jar" />
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_446fd0e2728699ee8dc28624f872f19d1494befa.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        jar="C:\Users\Joshua\.android\build-cache\84f572503efc6ca098165a1111ecd2d0da509fd0\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="00b311c6f5df094fdfa4475f251191a2dcb1201f">
-        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\instant-run_6ec7a86ac93f42e6c5228026bad7866bb847632f.jar" />
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_67153f6ba07c7f82f9cad51b9976bb8fbf005a3b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\55d10f97e7c4e90d0b7bc77b9b2c8dcd4819c02a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_5a9a5de9476871c356252e7f97b41b9e2e8058d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\3e55494a1111fa01e4719dfe4651ef8becf1efde\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_e14f80bf18d62e67a9e00b3b61af3502fb0eedcf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\e05f8542dbd8cbd88a0e09b4616f452357160ec6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_207af8f3306b8ce5c03f83139325adca4dc1bc34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\3998d5f2ffebaed386d5149613189ec5c56c671b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_7f121d6728f85140e1c4d0c4dc1cb4e2c1f80154.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\9fc65e36613777d05d5e8d51024478891f51ab20\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_943af4ad83764f7a43588544162823ee7695d04c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\dbc095f9e6bdfa031a6da5bb8147a4bf1e670708\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_569e44d6a9fb2992d37cbd79086403db3dc85908.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\2af5324c17efc013ba7f941cd70a793a171530b6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_bd9b5564b648e0b1e4f8c47a321b7afa5dffc2eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\3386756911bb49117fc3eac19a3151bc7b35fa4d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_4310ee398bd692846c17ebcaeab940a9dca40715.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\2bc426759d471aac00d23f2f8db4bce1d4376c7d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_3a7ecb4098a6642b1c828fbbd0b60b41ed9d07bd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\6a7a553e384f0c8e84ad95050bae700f8ba77f74\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_140370481f1cffe709e2e542d16dc284f148cbbd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\3645883f5ffa0c62b839667b73223c695bb1b370\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_cf8abdccb607612a3a559727a86252c3e4233968.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\9e782b1a3c8eb5a49d9cc20b21f8d158e07963c7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_5d33858f95f80e4c63cfa047e9c6930c9de57cfb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\54ed50460310cf5d675e983d01983b55ba52d788\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_0decfe529b4f3e13cbdec530a5166135ca578433.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\99fa3a172603de1943d0418ccf7c09db7ce5fc51\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_556326ca066e4f8b46af00037358ebb50f0bbd62.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\e8cf2369b04e8006a0cba372e6c377f27d4269a7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_ccdbc55e7111bb1b13118dcdc925eee334a098a2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\1472c65febd1e42afb4138579a10223aba0dea78\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_4cd481996970071bdb8d7519bffeb7af7fb3a452.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Joshua\.android\build-cache\d27db75f50a5a4bc1ebc284a02752362a5792781\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\Joshua\Desktop\CS 2340\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_d66d35f5b5b63f876e3e5af0ffad1879b14f7819.jar" />
     </item>
 
 </items>
