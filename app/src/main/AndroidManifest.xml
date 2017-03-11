@@ -39,6 +39,15 @@
             android:name="com.gatech.edu.soloTechno.m4_login.controllers.EditProfileActivity"
             android:label="EditProfileActivity">
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDaRkpwEOxzdlL81u5pWw7DrtBYA8Cy7mY" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+
     </application>
 
 </manifest>

@@ -1,15 +1,8 @@
 <component name="libraryTable">
-<<<<<<< HEAD:.idea/libraries/firebase_iid_10_0_1.xml
   <library name="firebase-iid-10.0.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/res" />
-=======
-  <library name="firebase-auth-9.6.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.6.0/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.6.0/res" />
->>>>>>> 788850caf33f95b99d2138664531d6072321ecc5:.idea/libraries/firebase_auth_9_6_0.xml
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
