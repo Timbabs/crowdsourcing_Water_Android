@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
 import com.gatech.edu.soloTechno.m4_login.model.TimePickerFragment;
+import com.gatech.edu.soloTechno.m4_login.model.WaterReportData;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -113,9 +114,17 @@ public class WaterReportActivity extends FragmentActivity {
                 wReport.put("Name", name.getText().toString());
                 wReport.put("Location Name", locationName.toString());
                 wReport.put("Location", locationLatLng.toString());
-                wReport.put("Water Type", waterTypeSpinner.getSelectedItem().toString());
+                wReport.put("Water Type", locationLatLng.toString());
                 wReport.put("Water Condition", waterConditionSpinner.getSelectedItem().toString());
-                myFirebaseRef.push().setValue(wReport);
+                //myFirebaseRef.push().setValue(wReport);
+
+
+                WaterReportData waterReportData = new WaterReportData( waterReportNumber.getText().toString(),
+                        name.getText().toString(), locationName.toString(), locationLatLng.toString(), locationLatLng.toString(),
+                        waterConditionSpinner.getSelectedItem().toString());
+
+                myFirebaseRef.getRoot().setValue(waterReportData);
+
 
                 waterLogger.add("Water Report Number: " + wReport.get("Water Report Number") + " Name: "
                         + wReport.get("Name") + " Location Name : " + wReport.get("Location Name")

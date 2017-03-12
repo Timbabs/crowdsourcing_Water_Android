@@ -3,21 +3,48 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Real\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/timothybaba/.android/build-cache/ad2066dead7012bda33ed01557acf875ef1abac7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1fa15d48b1b0e6792cb87cb05f1c7f18a3d6a495/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/.android/build-cache/05b79c1e50e438c1dcab752aec785e94a36f8003/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5660044e77308d41d607efd8342173ae8142476a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="14119bf11f0abcba7350c44014686cb6ac2bcf3d">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9407692393bb6d74a873f93acd56862854d479c6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/.android/build-cache/7692c58d54dcecf4367fd88c3ce5bcb232ce6444/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e869b41d6254edb7f8166833df33f53bec0b32b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Real\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a0b88ac687665f6a545929dfdeecda443b8c166d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Real\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38dfde3b12be2f6bbab0091e33921cb87004330c">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\CS 2340 Real\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4cb07678e5df33ce389f9dc13b432dd5d6c4034d\classes.dex" />
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5298e4cc2714fecacc660c26f109b86f1cdcf54b/classes.dex" />
     </item>
 
 </items>

@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.gatech.edu.soloTechno.m4_login.R;
+import com.gatech.edu.soloTechno.m4_login.model.WaterReportData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -73,6 +74,21 @@ public class MainActivity extends AppCompatActivity
             }
         };
     }
+
+     /*mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                WaterReportData data = dataSnapshot.getValue(WaterReportData.class);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.");
+            }
+        });*/
+
 
     /*
     * Initializes Google map
