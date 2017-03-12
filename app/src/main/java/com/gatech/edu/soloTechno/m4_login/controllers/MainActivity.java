@@ -10,7 +10,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.WaterReportData;
@@ -22,12 +26,18 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
 
-
+    private static final String TAG = MainActivity.class.getSimpleName();
     /**
      * Declare Firebase Authentication.
      */
@@ -39,6 +49,15 @@ public class MainActivity extends AppCompatActivity
     private NavigationView navigationView;
     private DrawerLayout drawer;
 
+
+    private String locationName;
+    private String name;
+    private String waterReportNumber;
+    private String waterTypeSpinner;
+    private String waterConditionSpinner;
+    private String locationLatLng;
+
+    private DatabaseReference mFirebaseDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +74,8 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
         /**
          * Displays a welcome message to the AppBar once a user is successfully logged in.
@@ -75,11 +96,17 @@ public class MainActivity extends AppCompatActivity
         };
     }
 
-     /*mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+    private void waterReportData() {
+         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 WaterReportData data = dataSnapshot.getValue(WaterReportData.class);
-
+                locationName = data.locationName;
+                name = data.name;
+                waterReportNumber = data.waterReportNumber;
+                waterTypeSpinner = data.waterType;
+                waterConditionSpinner = data.waterCondition;
+               locationLatLng = data.location;
 
             }
 
@@ -87,8 +114,8 @@ public class MainActivity extends AppCompatActivity
             public void onCancelled(DatabaseError databaseError) {
                 Log.w(TAG, "Failed to read value.");
             }
-        });*/
-
+        });
+    }
 
     /*
     * Initializes Google map
