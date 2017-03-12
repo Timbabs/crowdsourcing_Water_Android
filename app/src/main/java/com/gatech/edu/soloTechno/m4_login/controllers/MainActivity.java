@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity
     private String locationName;
     private String name;
     private String waterReportNumber;
-    private String waterTypeSpinner;
-    private String waterConditionSpinner;
+    private String waterType;
+    private String waterCondition;
     private String locationLatLng;
 
     private DatabaseReference mFirebaseDatabase;
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity
                 locationName = data.locationName;
                 name = data.name;
                 waterReportNumber = data.waterReportNumber;
-                waterTypeSpinner = data.waterType;
-                waterConditionSpinner = data.waterCondition;
+                waterType = data.waterType;
+                waterCondition = data.waterCondition;
                locationLatLng = data.location;
 
             }
