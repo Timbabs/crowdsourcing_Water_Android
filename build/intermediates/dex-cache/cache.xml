@@ -3,21 +3,255 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\2340 project\SoloWaterAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/anushkmittal/.android/build-cache/37874cba4c7a8809528a627a48d5e474ffd96b10/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_93dd82d6ad785ce52bb281980aeba6250c01586c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/f37d7ecfbd8910452e977b30e3d348bca28814e5/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8e4995b5e5a66d809de3b694634547fc6ce49cae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\asus\Desktop\2340 project\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_0e88c7eab864037d92e9278a57012535f07482fa\classes.dex" />
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5836f8b638ffd0ebac02b091999a7d8fb5495345/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\asus\Desktop\2340 project\SoloWaterAndroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/Users/anushkmittal/.android/build-cache/2981e1ab30098a62e17ccff22db417de68c76cb2/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d0225f8ca366d7c07c760c7e1991792de4de05a4">
-        <dex dex="C:\Users\asus\Desktop\2340 project\SoloWaterAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1c92649de44dfc1285a5487ba0cb0b8357238ee9\classes.dex" />
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_51ba2bed7373f952ad1d6aeddb67b87d2ef083b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/466bbe43f9fcfff94853bec60a277dc94f7237c3/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2a503dc2e853c0981f30ec1df626c1fdcf0cee5b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/25274b7b18a40d8b4929ef2a4a82e39213d6d615/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bc9f385d7376559676aad9a0dae6fb21ed7927a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/6fa70af1fa094c7e60697feb31acf3ebb0a88a31/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_83eacdc5fdeafd5184c71176d83f3a50bb0092ac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/534fe985832d5e056cf1654a0d21832efb4d14c2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5e6c7722c0b683db546e9a34d3faa8d377999119/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_e41b8b4d7c04352bded324f19ff42f6d632941ac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/6f2b210c74806fde920c87625634e604605c4278/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3194e8a6610193beb3ff1cda21d0f1dffba4fdf0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/da4a987d02a06fbea9941af4e813a8fa5d5cb764/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a3d0da441bbeb7e215faa01fa39575f0f895e488/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/9679c173d38ea3386e9a03af4e6ec3edcebf94b9/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_21f4a351c03877c3bab2046bc53f5cfa4fbfc1d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/69877568d5924054ff08ac137a9c9cf3004ad1b1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_80cdb5db740f105bfd327a3ffce788b781454f21/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/210c00525fcef11b825edd3dece1dd5b02d2e6a9/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d8f88222a441e9b108eb29a9c7995d978af356f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/a9a62dd082e54040fbbdece6ea9bd38411e93fa1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_113467a18905f7c630169faf09eeb3de29356d1c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1bc0b90c4d12d116801b0470c0f3afb6951b557b">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_54c2c6c44235ce909e6b80d2a759f6b613276941/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/b939913d79c5594f0a6037fde01bafd6f125900c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7843e18f1f1841826f2c009b25a202c05e55a557/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/aea0d53d5743bb9bfc8bedfed941c8e1a68f5b22/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d3a179e6016b86710fbaf2e08b3bc93df405eff3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/a32d5e9927bbf31e1b19907c1f2a7eb6bd3248d6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dbf1df9078bdad08c8612d845addffe9bbcba7bf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/f38d27e64ccb0fad455a35c1d469f0b67658b0a3/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0f7f767259580babd98c8f6684b474116df0db54/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/e0c86170d70281c8de7de54e981915395d94a592/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8e7c9077c87453e45be316fb56247dcd13b401a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/e26821761965d7752ba0227008ad9d7be1b37a7a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6f48459bf64391811aa160db2c9688d14f1dffd1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/b46dad39617bf0b2ddb16023bcd2ae99c134f8b8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_decef50038bbd5921bbe3b0b80e124cb564e7965/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/f97d39bbb70822c99ce01fe0f02ccbc2c0d9dcd7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_47b51c63773015889d28bc13186aff19befef5e5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/b697bee163598b442d57b77370ea24f37f855465/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9b36b48c45ebef161bf9765255804165b47f4a80/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/76b51f4126f59627744bef79ea0fc53f505c7413/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a80f897b5412c19c44ca2d2c6cefc7ddd40d5036/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/12fbf4d1aea5e2d2ec75d580297a10d5d80ebdcd/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_25c83f64c7c1de7c643d3cc891b7ee3d323b5c1a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/anushkmittal/.android/build-cache/8802d614dfc9ff00d797ef987dd825276c952ed6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/anushkmittal/Downloads/submit2340/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cab137ebd81eb35072b795cef8b4fd8421ec80fd/classes.dex" />
     </item>
 
 </items>

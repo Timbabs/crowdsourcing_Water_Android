@@ -1,6 +1,9 @@
 package com.gatech.edu.soloTechno.m4_login.controllers;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,11 +13,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.WaterReportData;
@@ -39,7 +48,7 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback, GoogleMap.InfoWindowAdapter {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     /**
@@ -162,20 +171,41 @@ public class MainActivity extends AppCompatActivity
                 });
     }
 
+    private Map singleUser = null;
+
     //Then loop through users, accessing their map and collecting the phone field.
     private void collectLatitudeLongitude(Map<String,Object> reports) {
         //iterate through each user
         for (Map.Entry<String, Object> entry : reports.entrySet()){
             //Get user map
-            Map singleUser = (Map) entry.getValue();
+            singleUser = (Map) entry.getValue();
             String latitude = (String) singleUser.get("latitude");
             String longitude = (String) singleUser.get("longitude");
 
-            MainActivity.mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))).title((String) singleUser.get("locationName")));
+            MainActivity.mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
+                    .title(
+                            ((String) singleUser.get("locationName"))
+                                    + " submitted by "
+                                    + ((String) singleUser.get("name"))
+
+                    )
+                    .snippet(
+                            ((String) singleUser.get("waterType"))
+                                    + " type with condition "
+                                    + ((String) singleUser.get("waterCondition"))
+                                    + ". Report number: "
+                                    + ((String) singleUser.get("waterReportNumber"))
+                    )
+
+            );
             MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+
         }
 
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -231,4 +261,35 @@ public class MainActivity extends AppCompatActivity
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+    @Override
+    public View getInfoWindow(Marker arg0) {
+        return null;
+    }
+
+    @Override
+    public View getInfoContents(Marker marker) {
+
+        Context context = getApplicationContext(); //or getActivity(), YourActivity.this, etc.
+
+        LinearLayout info = new LinearLayout(context);
+        info.setOrientation(LinearLayout.VERTICAL);
+
+        TextView title = new TextView(context);
+        title.setTextColor(Color.BLACK);
+        title.setGravity(Gravity.CENTER);
+        title.setTypeface(null, Typeface.BOLD);
+        title.setText(marker.getTitle());
+
+        TextView snippet = new TextView(context);
+        snippet.setTextColor(Color.GRAY);
+        snippet.setText(marker.getSnippet());
+
+        info.addView(title);
+        info.addView(snippet);
+
+        return info;
+    }
+
+
 }
