@@ -45,6 +45,7 @@ import java.util.Random;
  */
 
 public class WaterReportActivity extends FragmentActivity {
+    // private field to get the location's name
     private CharSequence locationName;
     private EditText name;
     private EditText waterReportNumber;
@@ -52,6 +53,7 @@ public class WaterReportActivity extends FragmentActivity {
     private Spinner waterConditionSpinner;
     private Button saveButton;
     private static ArrayList<String> waterLogger;
+    // private field to get the longitude and latitude of location
     private LatLng locationLatLng;
     private FirebaseAuth mAuth;
     private static int mutator;
@@ -98,22 +100,22 @@ public class WaterReportActivity extends FragmentActivity {
         waterTypeSpinner.setAdapter(waterTypeAdapter);
         waterConditionSpinner.setAdapter(waterConditionAdapter);
 
+        // Instantiate PlaceAutocompleteFragment for use.
         PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
                 getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
 
+        // Sets the listener to respond when the user selects a location from the search list
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
                 // TODO: Get info about the selected place.
                 locationLatLng = place.getLatLng();
                 locationName = place.getName();
-                //Log.i(TAG, "Place: " + place.getName());
             }
 
             @Override
             public void onError(Status status) {
                 // TODO: Handle the error.
-                //Log.i(TAG, "An error occurred: " + status);
             }
         });
 
@@ -176,6 +178,7 @@ public class WaterReportActivity extends FragmentActivity {
 
                 myFirebaseRef.child(userId).setValue(waterReportData);
 
+                // shows a brief outline of the report that the user just submitted
                 waterLogger.add("Water Report Number: " + wReport.get("Water Report Number") + " Name: "
                         + wReport.get("Name") + " Location Name : " + wReport.get("Location Name")
                         + " latitude: " + wReport.get("latitude") + " longitude: " + wReport.get("longitude")
