@@ -23,15 +23,19 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity
@@ -44,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
 
-    private GoogleMap mMap;
+    public static GoogleMap mMap;
 
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -55,7 +59,8 @@ public class MainActivity extends AppCompatActivity
     private String waterReportNumber;
     private String waterType;
     private String waterCondition;
-    private String locationLatLng;
+    private String latitude;
+    private String longitude;
 
     private DatabaseReference mFirebaseDatabase;
     @Override
@@ -106,8 +111,8 @@ public class MainActivity extends AppCompatActivity
                 waterReportNumber = data.waterReportNumber;
                 waterType = data.waterType;
                 waterCondition = data.waterCondition;
-               locationLatLng = data.location;
-
+                latitude = data.latitude;
+                longitude = data.longitude;
             }
 
             @Override
@@ -139,6 +144,37 @@ public class MainActivity extends AppCompatActivity
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water reports");
+        //loop over. Get datasnapshot at root node
+
+        ref.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //Get map of users in datasnapshot
+                        collectLatitudeLongitude((Map<String,Object>) dataSnapshot.getValue());
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        //handle databaseError
+                    }
+                });
+    }
+
+    //Then loop through users, accessing their map and collecting the phone field.
+    private void collectLatitudeLongitude(Map<String,Object> reports) {
+        //iterate through each user
+        for (Map.Entry<String, Object> entry : reports.entrySet()){
+            //Get user map
+            Map singleUser = (Map) entry.getValue();
+            String latitude = (String) singleUser.get("latitude");
+            String longitude = (String) singleUser.get("longitude");
+
+            MainActivity.mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))).title((String) singleUser.get("locationName")));
+            MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+        }
+
     }
 
     @Override

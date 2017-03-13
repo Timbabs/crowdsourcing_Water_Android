@@ -25,7 +25,9 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -50,6 +52,7 @@ public class WaterReportActivity extends FragmentActivity {
     private LatLng locationLatLng;
     private FirebaseAuth mAuth;
     private static int mutator;
+    MainActivity main = new MainActivity();
 
 
 
@@ -117,7 +120,8 @@ public class WaterReportActivity extends FragmentActivity {
                 wReport.put("Water Report Number", waterReportNumber.getText().toString());
                 wReport.put("Name", name.getText().toString());
                 wReport.put("Location Name", locationName.toString());
-                wReport.put("Location", locationLatLng.toString());
+                wReport.put("latitude", String.valueOf(locationLatLng.latitude));
+                wReport.put("longitude", String.valueOf(locationLatLng.longitude));
                 wReport.put("Water Type", waterTypeSpinner.toString());
                 wReport.put("Water Condition", waterConditionSpinner.getSelectedItem().toString());
                // myFirebaseRef.push().setValue(wReport);
@@ -125,15 +129,16 @@ public class WaterReportActivity extends FragmentActivity {
                 String userId = mAuth.getCurrentUser().getUid() + mutator++;
 
                 WaterReportData waterReportData = new WaterReportData( waterReportNumber.getText().toString(),
-                        name.getText().toString(), locationName.toString(), locationLatLng.toString(), locationLatLng.toString(),
+                        name.getText().toString(), locationName.toString(), String.valueOf(locationLatLng.latitude),
+                        String.valueOf(locationLatLng.longitude), waterTypeSpinner.getSelectedItem().toString(),
                         waterConditionSpinner.getSelectedItem().toString());
 
                 myFirebaseRef.child(userId).setValue(waterReportData);
 
                 waterLogger.add("Water Report Number: " + wReport.get("Water Report Number") + " Name: "
                         + wReport.get("Name") + " Location Name : " + wReport.get("Location Name")
-                        + " Location: " + wReport.get("Location") + " Water Type: "
-                        + wReport.get("Water Type") + " Water Condition: " + wReport.get("Water Condition")
+                        + " latitude: " + wReport.get("latitude") + " longitude: " + wReport.get("longitude")
+                        + " Water Type: " + wReport.get("Water Type") + " Water Condition: " + wReport.get("Water Condition")
                 );
 
                 runOnUiThread(new Runnable() {
@@ -170,6 +175,7 @@ public class WaterReportActivity extends FragmentActivity {
             }
         });
     }
+
 
     /*
     * Displays dates range for user input
