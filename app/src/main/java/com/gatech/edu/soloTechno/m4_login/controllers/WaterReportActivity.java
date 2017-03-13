@@ -29,8 +29,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,6 +55,7 @@ public class WaterReportActivity extends FragmentActivity {
     private LatLng locationLatLng;
     private FirebaseAuth mAuth;
     private static int mutator;
+    private String s = "";
     MainActivity main = new MainActivity();
 
 
@@ -113,6 +117,43 @@ public class WaterReportActivity extends FragmentActivity {
             }
         });
 
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water reports");
+        ref.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //Get map of users in datasnapshot
+                        for (Map.Entry<String, Object> entry : ((Map<String,Object>) dataSnapshot.getValue()).entrySet()) {
+                            //Get user map
+                            Map singleUser = (Map) entry.getValue();
+                              s  = s + ((String) singleUser.get("locationName"))
+                                    + " submitted by "
+                                    + ((String) singleUser.get("name"))
+                                    + " of "
+                                    + ((String) singleUser.get("waterType"))
+                                    + " type with condition "
+                                    + ((String) singleUser.get("waterCondition"))
+                                    + ". Report number: "
+                                    + ((String) singleUser.get("waterReportNumber"))
+                                    + System.lineSeparator()
+                                    + System.lineSeparator()
+                                    + System.lineSeparator();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+
+
+                });
+
+
+
+
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // pending:: submit water report to firebase DB
@@ -147,10 +188,7 @@ public class WaterReportActivity extends FragmentActivity {
                     public void run() {
 
                         if (!isFinishing()){
-                            String s = "";
-                            for(String str : waterLogger){
-                                s = s + " " + System.lineSeparator() + System.lineSeparator()  + str;
-                            }
+                            String st = "";
                             new AlertDialog.Builder(WaterReportActivity.this)
                                     .setTitle("Success")
                                     .setMessage("Currently saved reports are: " + s)
