@@ -21,6 +21,7 @@ public class WaterReportData {
     public String waterType;
     public String waterCondition;
 
+    //Constructor for DataSnapshot. Enabling user's info to be pulled back from firebase
     public WaterReportData() {
 
     }

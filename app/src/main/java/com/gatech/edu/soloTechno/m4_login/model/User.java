@@ -14,10 +14,12 @@ public class User {
     public String email;
     public String password;
 
+    //Constructor for DataSnapshot. Enabling user's info to be pulled from firebase
     public User() {
 
     }
 
+    //Constructor for saving passed in user's info
     public User (String firstNameame, String lastName, String accountType, String email, String password)  {
         this.firstName = firstNameame;
         this.lastName = lastName;

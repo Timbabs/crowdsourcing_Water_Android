@@ -63,13 +63,13 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout drawer;
 
 
-    private String locationName;
+   /* private String locationName;
     private String name;
     private String waterReportNumber;
     private String waterType;
     private String waterCondition;
     private String latitude;
-    private String longitude;
+    private String longitude;*/
 
     private DatabaseReference mFirebaseDatabase;
     @Override
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         };
     }
 
-    private void waterReportData() {
+    /*private void waterReportData() {
          mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity
                 Log.w(TAG, "Failed to read value.");
             }
         });
-    }
+    }*/
 
     /*
     * Initializes Google map

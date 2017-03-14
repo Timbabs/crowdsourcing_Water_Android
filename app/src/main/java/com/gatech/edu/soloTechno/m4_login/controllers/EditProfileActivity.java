@@ -100,6 +100,7 @@ public class EditProfileActivity extends AppCompatActivity {
         accountTypeSpinner.setAdapter(adapter);
 
 
+        //Auto fills the edit profile page with user's info
         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -159,7 +160,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                //Captures and stores updated user's info in firebase
                 mAuthListener = new FirebaseAuth.AuthStateListener() {
                     @Override
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
