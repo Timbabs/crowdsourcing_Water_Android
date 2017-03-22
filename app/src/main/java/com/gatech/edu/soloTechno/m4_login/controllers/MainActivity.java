@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -105,14 +106,21 @@ public class MainActivity extends AppCompatActivity
          */
         mAuth = FirebaseAuth.getInstance();
 
+        View header=navigationView.getHeaderView(0);
+        final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
+        final TextView user_field = (TextView)header.findViewById(R.id.userField);
+        final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
+
+
 
         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                //getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
-               // user_field.setText(user.firstName + ", " + user.lastName);
-
+                getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
+                image_filed.setImageResource(R.drawable.solotech2);
+                user_field.setText(user.firstName + " " + user.lastName);
+                email_filed.setText(user.email);
             }
 
             @Override
