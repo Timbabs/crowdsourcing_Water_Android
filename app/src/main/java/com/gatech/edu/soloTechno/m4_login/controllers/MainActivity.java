@@ -2,6 +2,7 @@ package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -81,14 +82,21 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        //drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+       toggle.setDrawerIndicatorEnabled(true);
+        drawer.setDrawerListener(toggle);
 
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
@@ -97,27 +105,13 @@ public class MainActivity extends AppCompatActivity
          */
         mAuth = FirebaseAuth.getInstance();
 
-        /*mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value.");
-            }
-        });*/
-        View header = navigationView.getHeaderView(0);
-        final TextView user_field = (TextView) header.findViewById(R.id.userField);
 
         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 //getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
-                user_field.setText(user.firstName + ", " + user.lastName);
+               // user_field.setText(user.firstName + ", " + user.lastName);
 
             }
 
@@ -131,26 +125,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    /*private void waterReportData() {
-         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                WaterReportData data = dataSnapshot.getValue(WaterReportData.class);
-                locationName = data.locationName;
-                name = data.name;
-                waterReportNumber = data.waterReportNumber;
-                waterType = data.waterType;
-                waterCondition = data.waterCondition;
-                latitude = data.latitude;
-                longitude = data.longitude;
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value.");
-            }
-        });
-    }*/
 
     /*
     * Initializes Google map
@@ -228,7 +202,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -267,7 +240,10 @@ public class MainActivity extends AppCompatActivity
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+
         return true;
+        //return super.onOptionsItemSelected(item);
     }
 
    /* @Override
