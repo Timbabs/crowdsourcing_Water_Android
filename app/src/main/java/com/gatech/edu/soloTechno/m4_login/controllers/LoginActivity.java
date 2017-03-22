@@ -245,8 +245,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     if (user != null) {
                         // User is signed in
-                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainActivity);
+                       /* Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainActivity);*/
                         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
                         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
@@ -446,8 +446,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     } else {
                         // Sign user in with email
 
-                       // Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                       // startActivity(mainActivity);
+                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainActivity);
                     }
                 }
             });

@@ -129,8 +129,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
         initMap();
-
-
     }
 
 
