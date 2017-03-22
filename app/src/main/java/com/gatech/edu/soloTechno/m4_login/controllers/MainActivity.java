@@ -26,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gatech.edu.soloTechno.m4_login.R;
+import com.gatech.edu.soloTechno.m4_login.model.User;
 import com.gatech.edu.soloTechno.m4_login.model.WaterReportData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -95,19 +96,39 @@ public class MainActivity extends AppCompatActivity
          * Displays a welcome message to the AppBar once a user is successfully logged in.
          */
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+        /*mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = mAuth.getCurrentUser();
-                if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
-                    if (RegisterActivity.firstName!= null && user.getDisplayName() != RegisterActivity.firstName) {
-                        getSupportActionBar().setTitle("Welcome, " + RegisterActivity.firstName + "!");
-                    }
-                    initMap();
-                }
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
             }
-        };
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.");
+            }
+        });*/
+        View header = navigationView.getHeaderView(0);
+        final TextView user_field = (TextView) header.findViewById(R.id.userField);
+
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                //getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
+                user_field.setText(user.firstName + ", " + user.lastName);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        initMap();
+
+
     }
 
     /*private void waterReportData() {
@@ -143,6 +164,7 @@ public class MainActivity extends AppCompatActivity
         // Re-order z-index of a sidebar menu
         navigationView.bringToFront();
         drawer.requestLayout();
+
     }
 
     @Override
@@ -225,7 +247,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_logout) {
             /**
-             * Uses firebase built-in signout method to a sign out users of their current session
+             * Uses firebase built-in signout method to sign out users of their current session
              */
             FirebaseAuth.getInstance().signOut();
 
@@ -248,7 +270,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
+   /* @Override
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
@@ -260,7 +282,7 @@ public class MainActivity extends AppCompatActivity
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
-    }
+    }*/
 
     @Override
     public View getInfoWindow(Marker arg0) {
