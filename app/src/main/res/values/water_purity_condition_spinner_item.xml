@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="water_purity_condition_array">
+        <item>Safe</item>
+        <item>Treatable</item>
+        <item>Unsafe</item>
+    </string-array>
+</resources>

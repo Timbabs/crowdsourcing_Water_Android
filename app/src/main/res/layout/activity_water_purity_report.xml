@@ -1,0 +1,181 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              tools:context="com.gatech.edu.soloTechno.m4_login.controllers.WaterReportActivity">
+
+    <!-- Submit progress -->
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/report_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/water_report_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/water_report_number_input"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/water_report_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/water_report_username_input"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:text = "Location"
+                android:id="@+id/water_report_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentLeft="true"/>
+
+            <fragment
+                android:id="@+id/place_autocomplete_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Location"
+                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+
+                />
+
+
+            <TextView
+                android:text="Water type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/water_type_spinner_text"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="38dp"
+                android:layout_alignParentLeft="true"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/water_type_spinner"/>
+
+            <TextView
+                android:text="Water condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/water_purity_condition_spinner_text"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="38dp"
+                android:layout_alignParentLeft="true"/>
+
+            <EditText
+                android:text="Virus PPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/virusPPM_text"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="38dp"
+                android:layout_alignParentLeft="true"/>
+
+            <EditText
+                android:text="Contaminant PPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/contaminantPPM_text"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="38dp"
+                android:layout_alignParentLeft="true"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/water_purity_condition_spinner"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp">
+
+                <Button
+                    android:layout_height="match_parent"
+                    android:text="@string/pick_date"
+                    android:onClick="showDatePickerDialog"
+                    android:layout_width="100dp"
+                    />
+
+                <TextView
+                    android:id="@+id/pick_date_input"
+                    android:layout_width="match_parent"
+                    android:text="MM/DD/YYYY"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="match_parent"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+
+                <Button
+                    android:layout_height="match_parent"
+                    android:text="@string/pick_time"
+                    android:onClick="showTimePickerDialog"
+                    android:layout_width="100dp"
+                    />
+
+                <TextView
+                    android:id="@+id/pick_time_input"
+                    android:layout_width="match_parent"
+                    android:text="HH:MM"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="match_parent"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_save"
+                android:textStyle="bold"
+                android:id="@+id/save_button" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+</LinearLayout>
