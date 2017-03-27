@@ -45,7 +45,6 @@ public class WaterPurityReportActivity extends FragmentActivity {
     private CharSequence locationName;
     private EditText name;
     private EditText waterReportNumber;
-    private Spinner waterTypeSpinner;
     private Spinner waterConditionSpinner;
     private EditText virusPPM;
     private EditText contaminantPPM;
@@ -68,7 +67,7 @@ public class WaterPurityReportActivity extends FragmentActivity {
         loadArray(getApplicationContext());
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_water_report);
+        setContentView(R.layout.activity_water_purity_report);
 
         saveButton = (Button) findViewById(R.id.save_button);
         name = (EditText) findViewById(R.id.water_report_username);
@@ -83,19 +82,14 @@ public class WaterPurityReportActivity extends FragmentActivity {
         // ramdom number range from 1 to 1000
         waterReportNumber.setText(Integer.toString(rand.nextInt(1000) + 1));
 
-        // water type & condition spinners
-        waterTypeSpinner = (Spinner) findViewById(R.id.water_type_spinner);
+        // water condition spinners
         waterConditionSpinner = (Spinner) findViewById(R.id.water_purity_condition_spinner);
 
-        ArrayAdapter<CharSequence> waterTypeAdapter = ArrayAdapter.createFromResource(this,
-                R.array.water_type_array, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> waterConditionAdapter = ArrayAdapter.createFromResource(this,
-                R.array.water_condition_array, android.R.layout.simple_spinner_item);
+                R.array.water_purity_condition_array, android.R.layout.simple_spinner_item);
 
-        waterTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         waterConditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        waterTypeSpinner.setAdapter(waterTypeAdapter);
         waterConditionSpinner.setAdapter(waterConditionAdapter);
 
         virusPPM = (EditText) findViewById(R.id.virusPPM_text);
@@ -134,8 +128,6 @@ public class WaterPurityReportActivity extends FragmentActivity {
                                     + " submitted by "
                                     + ((String) singleUser.get("name"))
                                     + " of "
-                                    + ((String) singleUser.get("waterType"))
-                                    + " type with condition "
                                     + ((String) singleUser.get("waterPurityCondition"))
                                     + ". Report number: "
                                     + ((String) singleUser.get("virusPPM"))
@@ -151,8 +143,6 @@ public class WaterPurityReportActivity extends FragmentActivity {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-
-
                 });
 
 
@@ -168,7 +158,6 @@ public class WaterPurityReportActivity extends FragmentActivity {
                 wReport.put("locationName", locationName.toString());
                 wReport.put("latitude", String.valueOf(locationLatLng.latitude));
                 wReport.put("longitude", String.valueOf(locationLatLng.longitude));
-                wReport.put("waterType", waterTypeSpinner.toString());
                 wReport.put("waterPurityCondition", waterConditionSpinner.getSelectedItem().toString());
                 wReport.put("virusPPM", virusPPM.toString());
                 wReport.put("contaminantPPM", contaminantPPM.toString());
@@ -178,9 +167,8 @@ public class WaterPurityReportActivity extends FragmentActivity {
 
                 WaterPurityReportData waterSourceReportData = new WaterPurityReportData( waterReportNumber.getText().toString(),
                         name.getText().toString(), locationName.toString(), String.valueOf(locationLatLng.latitude),
-                        String.valueOf(locationLatLng.longitude), waterTypeSpinner.getSelectedItem().toString(),
-                        waterConditionSpinner.getSelectedItem().toString(), virusPPM.getText().toString(),
-                        contaminantPPM.getText().toString());
+                        String.valueOf(locationLatLng.longitude), waterConditionSpinner.getSelectedItem().toString(),
+                        virusPPM.getText().toString(), contaminantPPM.getText().toString());
 
                 myFirebaseRef.child(userId).setValue(waterSourceReportData);
 
@@ -188,7 +176,7 @@ public class WaterPurityReportActivity extends FragmentActivity {
                 waterPurityLogger.add("waterReportNumber: " + wReport.get("waterReportNumber") + " Name: "
                         + wReport.get("name") + " Location Name : " + wReport.get("locationName")
                         + " latitude: " + wReport.get("latitude") + " longitude: " + wReport.get("longitude")
-                        + " Water Type: " + wReport.get("waterType") + " Water Purity Condition: " + wReport.get("waterPurityCondition")
+                        + " Water Purity Condition: " + wReport.get("waterPurityCondition")
                         + " Virus PPM: " + wReport.get("virusPPM") + " Contaminant PPM: " + wReport.get("ContaminantPPM")
                 );
 

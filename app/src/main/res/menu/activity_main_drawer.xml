@@ -19,5 +19,4 @@
             android:icon="@drawable/ic_exit_to_app_black_24dp"
             android:title="@string/action_log_out"/>
     </group>
-
 </menu>

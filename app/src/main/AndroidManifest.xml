@@ -39,6 +39,10 @@
             android:name="com.gatech.edu.soloTechno.m4_login.controllers.EditProfileActivity"
             android:label="EditProfileActivity">
         </activity>
+        <activity
+            android:name="com.gatech.edu.soloTechno.m4_login.controllers.WaterPurityReportActivity"
+            android:label="WaterPurityReportActivity">
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

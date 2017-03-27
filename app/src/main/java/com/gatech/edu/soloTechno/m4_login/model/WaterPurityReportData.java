@@ -18,7 +18,6 @@ public class WaterPurityReportData {
     public String locationName;
     public String latitude;
     public String longitude;
-    public String waterType;
     public String waterCondition;
     public String virusPPM;
     public String contaminantPPM;
@@ -29,13 +28,12 @@ public class WaterPurityReportData {
     }
 
     public WaterPurityReportData (String waterReportNumber, String name, String locationName, String latitude,
-                            String longitude, String waterType, String waterCondition, String virusPPM, String contaminantPPM)  {
+                            String longitude, String waterCondition, String virusPPM, String contaminantPPM)  {
         this.waterReportNumber = waterReportNumber;
         this.name = name;
         this.locationName = locationName;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.waterType = waterType;
         this.waterCondition = waterCondition;
         this.virusPPM = virusPPM;
         this.contaminantPPM = contaminantPPM;

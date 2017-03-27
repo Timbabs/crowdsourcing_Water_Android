@@ -12,7 +12,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,10 +28,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +57,8 @@ public class MainActivity extends AppCompatActivity
 
     private NavigationView navigationView;
     private DrawerLayout drawer;
+
+    private String accountType;
 
 
    /* private String locationName;
@@ -98,10 +105,8 @@ public class MainActivity extends AppCompatActivity
         final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
         final TextView user_field = (TextView)header.findViewById(R.id.userField);
         final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
-
-
-
         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
@@ -109,6 +114,7 @@ public class MainActivity extends AppCompatActivity
                 image_filed.setImageResource(R.drawable.solotech2);
                 user_field.setText(user.firstName + " " + user.lastName);
                 email_filed.setText(user.email);
+                accountType = user.accountType;
             }
 
             @Override
@@ -116,6 +122,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+        accountType = accountType == null ? "User" : accountType;
         initMap();
     }
 
@@ -146,12 +153,28 @@ public class MainActivity extends AppCompatActivity
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water reports");
         //loop over. Get datasnapshot at root node
 
-        ref.addListenerForSingleValueEvent(
+            ref.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of users in datasnapshot
                         collectLatitudeLongitude((Map<String,Object>) dataSnapshot.getValue());
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        //handle databaseError
+                    }
+                });
+
+        DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("water purity reports");
+
+        ref2.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //Get map of users in datasnapshot
+                        addPurityReportData((Map<String,Object>) dataSnapshot.getValue());
                     }
 
                     @Override
@@ -195,6 +218,64 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private Map singleReport = null;
+
+    //Then loop through users, accessing their map and collecting the phone field.
+    private void addPurityReportData(Map<String,Object> reports) {
+        //iterate through each user
+        for (Map.Entry<String, Object> entry : reports.entrySet()){
+            //Get user map
+            singleReport = (Map) entry.getValue();
+            String latitude = (String) singleReport.get("latitude");
+            String longitude = (String) singleReport.get("longitude");
+
+            MainActivity.mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
+                    .title(
+                            ((String) singleReport.get("locationName"))
+                                    + " submitted by "
+                                    + ((String) singleReport.get("name"))
+
+                    )
+                    .snippet(
+                            ((String) singleReport.get("waterCondition"))
+                                    + ". Report number: "
+                                    + ((String) singleReport.get("waterReportNumber"))
+                    )
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+
+            );
+            MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        if (accountType.equals("User")) {
+            navigationView.getMenu().findItem(R.id.nav_water_purity_report).setVisible(false);
+        }
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.activity_main_user, menu);
+        return true;
+    }
+
+        //invalidateOptionsMenu();
+
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//
+//        //invalidateOptionsMenu();
+//
+//        if (accountType.equals("User")) {
+//            MenuInflater inflater = getMenuInflater();
+//            inflater.inflate(R.menu.activity_main_user, menu);
+//        }
+//
+//        return super.onPrepareOptionsMenu(menu);
+//    }
 
     @Override
     public void onBackPressed() {
@@ -209,6 +290,9 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -231,6 +315,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_water_source_report) {
             Intent waterReportActivity = new Intent(getApplicationContext(), WaterReportActivity.class);
             startActivity(waterReportActivity);
+        } else if (id == R.id.nav_water_purity_report) {
+            Intent waterPurityReportActivity = new Intent(getApplicationContext(), WaterPurityReportActivity.class);
+            startActivity(waterPurityReportActivity);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -238,6 +325,8 @@ public class MainActivity extends AppCompatActivity
 
         return true;
         //return super.onOptionsItemSelected(item);
+
+
     }
 
    /* @Override

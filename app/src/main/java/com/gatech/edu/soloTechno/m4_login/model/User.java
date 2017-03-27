@@ -20,12 +20,16 @@ public class User {
     }
 
     //Constructor for saving passed in user's info
-    public User (String firstNameame, String lastName, String accountType, String email, String password)  {
-        this.firstName = firstNameame;
+    public User (String firstName, String lastName, String accountType, String email, String password)  {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.accountType = accountType;
         this.email = email;
         this.password = password;
+    }
+
+    public String getAccountType() {
+        return accountType;
     }
 }
 
