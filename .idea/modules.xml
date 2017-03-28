@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SoloWaterAndroid.iml" filepath="$PROJECT_DIR$/SoloWaterAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS 2340 Real.iml" filepath="$PROJECT_DIR$/CS 2340 Real.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

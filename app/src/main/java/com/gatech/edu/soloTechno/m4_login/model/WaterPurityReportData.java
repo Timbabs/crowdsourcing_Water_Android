@@ -38,4 +38,20 @@ public class WaterPurityReportData {
         this.virusPPM = virusPPM;
         this.contaminantPPM = contaminantPPM;
     }
+
+    /**
+     * Fetches the report in string for display
+     * @return string of text
+     */
+    public String getReport(){
+        String list = "Water Report Number : " + waterReportNumber
+                + "\nName : " + name
+                + "\nLocation Name : " + locationName
+                + "\nLatitude : " + latitude
+                + "\nLongitude : " + longitude
+                + "\nWater Condition : " + waterCondition
+                + "\nVirus PPM : " + virusPPM
+                + "\nContaminant PPM : " + contaminantPPM;
+        return list;
+    }
 }

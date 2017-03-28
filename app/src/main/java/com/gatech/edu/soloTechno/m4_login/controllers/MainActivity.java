@@ -140,6 +140,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.bringToFront();
         drawer.requestLayout();
 
+
+
+
     }
 
     @Override
@@ -150,7 +153,7 @@ public class MainActivity extends AppCompatActivity
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water reports");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water source reports");
         //loop over. Get datasnapshot at root node
 
             ref.addListenerForSingleValueEvent(
@@ -186,7 +189,7 @@ public class MainActivity extends AppCompatActivity
 
     private Map singleUser = null;
 
-    //Then loop through users, accessing their map and collecting the phone field.
+   // Then loop through users, accessing their map and collecting the phone field.
     private void collectLatitudeLongitude(Map<String,Object> reports) {
         //iterate through each user
         for (Map.Entry<String, Object> entry : reports.entrySet()){
@@ -220,7 +223,7 @@ public class MainActivity extends AppCompatActivity
 
     private Map singleReport = null;
 
-    //Then loop through users, accessing their map and collecting the phone field.
+   // Then loop through users, accessing their map and collecting the phone field.
     private void addPurityReportData(Map<String,Object> reports) {
         //iterate through each user
         for (Map.Entry<String, Object> entry : reports.entrySet()){
@@ -251,31 +254,20 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    // Makes limitations based on account type
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         if (accountType.equals("User")) {
             navigationView.getMenu().findItem(R.id.nav_water_purity_report).setVisible(false);
         }
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.activity_main_user, menu);
+        if(accountType.equals("User") || accountType.equals("Worker")){
+            navigationView.getMenu().findItem(R.id.nav_water_purity_list).setVisible(false);
+        }
+
         return true;
     }
 
-        //invalidateOptionsMenu();
-
-//    @Override
-//    public boolean onPrepareOptionsMenu(Menu menu) {
-//
-//        //invalidateOptionsMenu();
-//
-//        if (accountType.equals("User")) {
-//            MenuInflater inflater = getMenuInflater();
-//            inflater.inflate(R.menu.activity_main_user, menu);
-//        }
-//
-//        return super.onPrepareOptionsMenu(menu);
-//    }
 
     @Override
     public void onBackPressed() {
@@ -318,6 +310,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_water_purity_report) {
             Intent waterPurityReportActivity = new Intent(getApplicationContext(), WaterPurityReportActivity.class);
             startActivity(waterPurityReportActivity);
+        } else if (id == R.id.nav_water_purity_list) {
+            Intent waterPurityListActivity = new Intent(getApplicationContext(), WaterPurityListActivity.class);
+            startActivity(waterPurityListActivity);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

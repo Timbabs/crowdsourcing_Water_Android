@@ -117,7 +117,8 @@ public class WaterReportActivity extends FragmentActivity {
             }
         });
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water reports");
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water source reports");
         ref.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -125,7 +126,7 @@ public class WaterReportActivity extends FragmentActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of users in datasnapshot
                         for (Map.Entry<String, Object> entry : ((Map<String,Object>) dataSnapshot.getValue()).entrySet()) {
-                            //Get user map
+                           // Get user map
                             Map singleUser = (Map) entry.getValue();
                               s  = s + ((String) singleUser.get("locationName"))
                                     + " submitted by "
@@ -149,7 +150,6 @@ public class WaterReportActivity extends FragmentActivity {
 
 
                 });
-
 
 
 
