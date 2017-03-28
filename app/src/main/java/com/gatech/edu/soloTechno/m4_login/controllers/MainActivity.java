@@ -190,6 +190,11 @@ public class MainActivity extends AppCompatActivity
     private Map singleUser = null;
 
    // Then loop through users, accessing their map and collecting the phone field.
+
+    /**
+     *
+     * @param reports the collection of water source reports to add markers
+     */
     private void collectLatitudeLongitude(Map<String,Object> reports) {
         //iterate through each user
         for (Map.Entry<String, Object> entry : reports.entrySet()){
@@ -224,6 +229,10 @@ public class MainActivity extends AppCompatActivity
     private Map singleReport = null;
 
    // Then loop through users, accessing their map and collecting the phone field.
+    /**
+     * Sets the text for the display on recycler view
+     * @param reports Map collection of water purity reports
+     **/
     private void addPurityReportData(Map<String,Object> reports) {
         //iterate through each user
         for (Map.Entry<String, Object> entry : reports.entrySet()){
