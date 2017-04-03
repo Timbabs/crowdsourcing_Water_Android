@@ -272,6 +272,7 @@ public class MainActivity extends AppCompatActivity
         }
         if(accountType.equals("User") || accountType.equals("Worker")){
             navigationView.getMenu().findItem(R.id.nav_water_purity_list).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_historical_report).setVisible(false);
         }
 
         return true;

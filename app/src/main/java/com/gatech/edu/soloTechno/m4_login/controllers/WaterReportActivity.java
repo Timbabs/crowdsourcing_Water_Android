@@ -227,7 +227,7 @@ public class WaterReportActivity extends FragmentActivity {
     }
 
     /*
-    * Displays time range for user input
+    * Displays f range for user input
     *
     * @Param v View for date picker
     * */
