@@ -11,11 +11,13 @@ import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
@@ -34,6 +36,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +52,7 @@ public class WaterPurityReportActivity extends FragmentActivity {
     private Spinner waterConditionSpinner;
     private EditText virusPPM;
     private EditText contaminantPPM;
+    private TextView date;
     private Button saveButton;
     private static ArrayList<String> waterPurityLogger;
     // private field to get the longitude and latitude of location
@@ -56,6 +61,8 @@ public class WaterPurityReportActivity extends FragmentActivity {
     private static int mutator;
     private String s = "";
     MainActivity main = new MainActivity();
+    private String year;
+    private String month;
 
 
 
@@ -94,6 +101,11 @@ public class WaterPurityReportActivity extends FragmentActivity {
 
         virusPPM = (EditText) findViewById(R.id.virusPPM_text);
         contaminantPPM = (EditText) findViewById(R.id.contaminantPPM_text);
+        date = (TextView) findViewById(R.id.pick_date_input);
+
+
+
+
 
         // Instantiate PlaceAutocompleteFragment for use.
         PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
@@ -133,6 +145,8 @@ public class WaterPurityReportActivity extends FragmentActivity {
                                     + ((String) singleUser.get("virusPPM"))
                                     + ((String) singleUser.get("contaminantPPM"))
                                     + ((String) singleUser.get("waterReportNumber"))
+                                    + ((String) singleUser.get("year"))
+                                    + ((String) singleUser.get("month"))
                                     + System.lineSeparator()
                                     + System.lineSeparator()
                                     + System.lineSeparator();
@@ -161,6 +175,11 @@ public class WaterPurityReportActivity extends FragmentActivity {
                 wReport.put("waterPurityCondition", waterConditionSpinner.getSelectedItem().toString());
                 wReport.put("virusPPM", virusPPM.toString());
                 wReport.put("contaminantPPM", contaminantPPM.toString());
+                String[] dateSplit = date.getText().toString().split("/");
+                year = dateSplit[2];
+                month = dateSplit[0];
+                wReport.put("year", year);
+                wReport.put("month", month);
                 // myFirebaseRef.push().setValue(wReport);
 
                 String userId = mAuth.getCurrentUser().getUid() + mutator++;
@@ -168,7 +187,7 @@ public class WaterPurityReportActivity extends FragmentActivity {
                 WaterPurityReportData waterSourceReportData = new WaterPurityReportData( waterReportNumber.getText().toString(),
                         name.getText().toString(), locationName.toString(), String.valueOf(locationLatLng.latitude),
                         String.valueOf(locationLatLng.longitude), waterConditionSpinner.getSelectedItem().toString(),
-                        virusPPM.getText().toString(), contaminantPPM.getText().toString());
+                        virusPPM.getText().toString(), contaminantPPM.getText().toString(), year, month);
 
                 myFirebaseRef.child(userId).setValue(waterSourceReportData);
 
@@ -178,6 +197,7 @@ public class WaterPurityReportActivity extends FragmentActivity {
                         + " latitude: " + wReport.get("latitude") + " longitude: " + wReport.get("longitude")
                         + " Water Purity Condition: " + wReport.get("waterPurityCondition")
                         + " Virus PPM: " + wReport.get("virusPPM") + " Contaminant PPM: " + wReport.get("ContaminantPPM")
+                        + " Year : " + wReport.get("year") + " Month : " + wReport.get("month")
                 );
 
                 runOnUiThread(new Runnable() {

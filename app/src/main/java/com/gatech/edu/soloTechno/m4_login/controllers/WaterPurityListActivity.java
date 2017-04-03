@@ -66,10 +66,12 @@ public class WaterPurityListActivity extends AppCompatActivity {
                             String locationName = (String) singleUser.get("locationName");
                             String waterCondition = (String) singleUser.get("waterCondition");
                             String virusPPM = (String) singleUser.get("virusPPM");
+                            String year = (String) singleUser.get("year");
+                            String month = (String) singleUser.get("month");
 
                             //Add each data into the list to display on Recycler View
                             purityList.add(new WaterPurityReportData(waterReportNumber, name, locationName, latitude, longitude
-                                    , waterCondition, virusPPM, contaminantPPM));
+                                    , waterCondition, virusPPM, contaminantPPM, year, month));
                         }
 
 

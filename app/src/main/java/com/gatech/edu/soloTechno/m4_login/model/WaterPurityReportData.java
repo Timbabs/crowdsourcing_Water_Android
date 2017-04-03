@@ -21,6 +21,8 @@ public class WaterPurityReportData {
     public String waterCondition;
     public String virusPPM;
     public String contaminantPPM;
+    public String year;
+    public String month;
 
     //Constructor for DataSnapshot. Enabling user's info to be pulled back from firebase
     public WaterPurityReportData() {
@@ -28,7 +30,7 @@ public class WaterPurityReportData {
     }
 
     public WaterPurityReportData (String waterReportNumber, String name, String locationName, String latitude,
-                            String longitude, String waterCondition, String virusPPM, String contaminantPPM)  {
+                            String longitude, String waterCondition, String virusPPM, String contaminantPPM, String year, String month)  {
         this.waterReportNumber = waterReportNumber;
         this.name = name;
         this.locationName = locationName;
@@ -37,6 +39,8 @@ public class WaterPurityReportData {
         this.waterCondition = waterCondition;
         this.virusPPM = virusPPM;
         this.contaminantPPM = contaminantPPM;
+        this.year = year;
+        this.month = month;
     }
 
     /**
@@ -51,7 +55,9 @@ public class WaterPurityReportData {
                 + "\nLongitude : " + longitude
                 + "\nWater Condition : " + waterCondition
                 + "\nVirus PPM : " + virusPPM
-                + "\nContaminant PPM : " + contaminantPPM;
+                + "\nContaminant PPM : " + contaminantPPM
+                + "\nYear : " + year
+                + "\nMonth : " + month;
         return list;
     }
 }
