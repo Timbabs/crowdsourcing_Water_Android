@@ -322,6 +322,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_water_purity_list) {
             Intent waterPurityListActivity = new Intent(getApplicationContext(), WaterPurityListActivity.class);
             startActivity(waterPurityListActivity);
+        } else if (id == R.id.nav_historical_report) {
+            Intent historicalReportActivity = new Intent(getApplicationContext(), HistoricalReportActivity.class);
+            startActivity(historicalReportActivity);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

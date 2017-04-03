@@ -38,6 +38,9 @@
         <activity
             android:name=".controllers.WaterPurityReportActivity"
             android:label="WaterPurityReportActivity" />
+        <activity
+            android:name=".controllers.HistoricalReportActivity"
+            android:label="HistoricalReportActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
