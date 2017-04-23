@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
 import com.gatech.edu.soloTechno.m4_login.model.TimePickerFragment;
+import com.gatech.edu.soloTechno.m4_login.model.User;
 import com.gatech.edu.soloTechno.m4_login.model.WaterSourceReportData;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -56,6 +57,7 @@ public class WaterReportActivity extends FragmentActivity {
     private FirebaseAuth mAuth;
     private static int mutator;
     private String s = "";
+    private DatabaseReference mFirebaseDatabase =FirebaseDatabase.getInstance().getReference("users");
     MainActivity main = new MainActivity();
 
 
@@ -202,8 +204,24 @@ public class WaterReportActivity extends FragmentActivity {
                                             // Whatever...
                                             // when successfully saved user water report, direct user to main screen
                                             saveArray();
-                                            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                            startActivity(mainActivity);
+                                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    User user = dataSnapshot.getValue(User.class);
+                                                    String accountType = user.accountType;
+
+                                                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                                    mainActivity.putExtra("ACCOUNT_TYPE", accountType);
+                                                    startActivity(mainActivity);
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+                                                    System.out.println("The read failed: " + databaseError.getCode());
+                                                }
+                                            });
                                         }
                                     }).show();
                         }

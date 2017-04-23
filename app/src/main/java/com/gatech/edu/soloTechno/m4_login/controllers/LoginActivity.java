@@ -399,7 +399,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         mPasswordView.requestFocus();
                     } else {
                         // Sign user in with email
-                        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
 
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {

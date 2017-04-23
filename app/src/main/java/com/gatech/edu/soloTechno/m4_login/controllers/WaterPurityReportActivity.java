@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.DatePickerFragment;
 import com.gatech.edu.soloTechno.m4_login.model.TimePickerFragment;
+import com.gatech.edu.soloTechno.m4_login.model.User;
 import com.gatech.edu.soloTechno.m4_login.model.WaterPurityReportData;
 import com.gatech.edu.soloTechno.m4_login.model.WaterSourceReportData;
 import com.google.android.gms.common.api.Status;
@@ -63,6 +64,7 @@ public class WaterPurityReportActivity extends FragmentActivity {
     MainActivity main = new MainActivity();
     private String year;
     private String month;
+    private DatabaseReference mFirebaseDatabase =FirebaseDatabase.getInstance().getReference("users");
 
 
 
@@ -220,8 +222,24 @@ public class WaterPurityReportActivity extends FragmentActivity {
                                             // Whatever...
                                             // when successfully saved user water report, direct user to main screen
                                             saveArray();
-                                            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                            startActivity(mainActivity);
+                                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    User user = dataSnapshot.getValue(User.class);
+                                                    String accountType = user.accountType;
+
+                                                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                                    mainActivity.putExtra("ACCOUNT_TYPE", accountType);
+                                                    startActivity(mainActivity);
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+                                                    System.out.println("The read failed: " + databaseError.getCode());
+                                                }
+                                            });
                                         }
                                     }).show();
                         }

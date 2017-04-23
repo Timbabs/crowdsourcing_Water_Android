@@ -101,7 +101,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
         //Auto fills the edit profile page with user's info
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
@@ -175,11 +175,11 @@ public class EditProfileActivity extends AppCompatActivity {
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         if (user != null) {
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("firstName").setValue(firstName);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("lastName").setValue(lastName);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("accountType").setValue(accountType);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("email").setValue(email);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("password").setValue(password);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("firstName").setValue(firstName);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("lastName").setValue(lastName);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("accountType").setValue(accountType);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("email").setValue(email);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("password").setValue(password);
                             mAuth.getCurrentUser().updateEmail(email);
                             mAuth.getCurrentUser().updatePassword(password);
 
@@ -228,6 +228,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtra("ACCOUNT_TYPE", accountType);
                             startActivity(intent);
                             //finish();
 
