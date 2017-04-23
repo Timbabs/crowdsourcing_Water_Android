@@ -133,6 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
         saveButton = (Button) findViewById(R.id.save_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 accountType = accountTypeSpinner.getSelectedItem().toString().trim();
                 email = email_text.getText().toString().trim();
                 password = password_text.getText().toString().trim();

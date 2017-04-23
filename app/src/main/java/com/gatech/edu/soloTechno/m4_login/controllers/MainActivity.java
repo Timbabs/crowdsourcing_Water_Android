@@ -74,6 +74,22 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                accountType = user.accountType;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -94,12 +110,12 @@ public class MainActivity extends AppCompatActivity
        toggle.setDrawerIndicatorEnabled(true);
         drawer.setDrawerListener(toggle);
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
+
 
         /**
          * Displays a welcome message to the AppBar once a user is successfully logged in.
          */
-        mAuth = FirebaseAuth.getInstance();
+
 
         View header=navigationView.getHeaderView(0);
         final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
@@ -111,10 +127,9 @@ public class MainActivity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
-                image_filed.setImageResource(R.drawable.solotech2);
+                //image_filed.setImageResource(R.drawable.solotech2);
                 user_field.setText(user.firstName + " " + user.lastName);
                 email_filed.setText(user.email);
-                accountType = user.accountType;
             }
 
             @Override
@@ -122,7 +137,6 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        accountType = accountType == null ? "User" : accountType;
         initMap();
     }
 
@@ -272,9 +286,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        if (accountType.equals("User")) {
-            navigationView.getMenu().findItem(R.id.nav_water_purity_report).setVisible(false);
-        }
         if(accountType.equals("User") || accountType.equals("Worker")){
             navigationView.getMenu().findItem(R.id.nav_water_purity_list).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_historical_report).setVisible(false);

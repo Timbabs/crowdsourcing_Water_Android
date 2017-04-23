@@ -239,52 +239,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             signIn(email, password);
-            mAuthListener = new FirebaseAuth.AuthStateListener() {
-                @Override
-                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    if (user != null) {
-                        // User is signed in
-                       /* Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainActivity);*/
-                        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
-
-                        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                User user = dataSnapshot.getValue(User.class);
-
-                                UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(user.firstName)
-                                        .build();
-
-                                mAuth.getCurrentUser().updateProfile(addProfileName)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    //Log.d(TAG, user.getDisplayName());
-                                                   // Log.d(TAG, "");
-                                                }
-                                            }
-
-                                        });
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                               // Log.w(TAG, "Failed to read value.");
-                            }
-                        });
-
-                    } else {
-                        // User is signed out
-                    }
-                }
-            };
-            mAuth.addAuthStateListener(mAuthListener);
-
         }
     }
 
