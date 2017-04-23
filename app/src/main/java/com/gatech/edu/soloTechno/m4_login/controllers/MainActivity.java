@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
 
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity
         final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
         final TextView user_field = (TextView)header.findViewById(R.id.userField);
         final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

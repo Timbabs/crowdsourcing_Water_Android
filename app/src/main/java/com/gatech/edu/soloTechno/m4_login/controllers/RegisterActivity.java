@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
 
-    private String userId;
+    private String userId = "";
 
     public static List<String> accounts = Arrays.asList("Manager", "Worker", "Admin", "User");
 
@@ -87,7 +87,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_register);
-
 
 
         /**
@@ -104,7 +103,6 @@ public class RegisterActivity extends AppCompatActivity {
          * Creates an object that accesses the tools provided in the Firebase Authentication SDK
          */
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
         /*if (mAuth.getCurrentUser() != null) {
             ValueEventListener postListener = new ValueEventListener() {
@@ -263,7 +261,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    createFirebaseUserProfile(user);
+                        createFirebaseUserProfile(user);
 
                     /*Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -388,10 +386,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         User mUser = new User(firstName, lastName, accountType, email, password);
 
-        mFirebaseDatabase.child(userId).setValue(mUser);
 
 
-
+        mFirebaseDatabase.child(firstName).setValue(mUser);
 
     }
 }
