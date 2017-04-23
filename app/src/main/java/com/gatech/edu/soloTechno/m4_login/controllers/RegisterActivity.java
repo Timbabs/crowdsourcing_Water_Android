@@ -246,6 +246,7 @@ public class RegisterActivity extends AppCompatActivity {
                             //   startActivity(mainActivity);
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtra("ACCOUNT_TYPE", accountType);
                             startActivity(intent);
                             finish();
 
@@ -391,5 +392,6 @@ public class RegisterActivity extends AppCompatActivity {
         mFirebaseDatabase.child(firstName).setValue(mUser);
 
     }
+
 }
 

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
      * Declare Firebase Authentication.
      */
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private FirebaseAuth mAuth;
+
 
     public static GoogleMap mMap;
 
@@ -69,26 +69,14 @@ public class MainActivity extends AppCompatActivity
     private String latitude;
     private String longitude;*/
 
-    private DatabaseReference mFirebaseDatabase;
+    private DatabaseReference mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
 
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                accountType = user.accountType;
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -121,7 +109,7 @@ public class MainActivity extends AppCompatActivity
         final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
         final TextView user_field = (TextView)header.findViewById(R.id.userField);
         final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -130,7 +118,6 @@ public class MainActivity extends AppCompatActivity
                 //image_filed.setImageResource(R.drawable.solotech2);
                 user_field.setText(user.firstName + " " + user.lastName);
                 email_filed.setText(user.email);
-                accountType = user.accountType;
             }
 
             @Override
@@ -287,6 +274,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
+        accountType = getIntent().getStringExtra("ACCOUNT_TYPE");
         if(accountType.equals("User") || accountType.equals("Worker")){
             navigationView.getMenu().findItem(R.id.nav_water_purity_list).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_historical_report).setVisible(false);

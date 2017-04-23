@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private DatabaseReference mFirebaseDatabase;
+    private DatabaseReference mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
     /**
      * Creates an instance of Firebase authentication
@@ -399,9 +399,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         mPasswordView.requestFocus();
                     } else {
                         // Sign user in with email
+                        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
 
-                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainActivity);
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
+                                String accountType = user.accountType;
+
+                                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                mainActivity.putExtra("ACCOUNT_TYPE", accountType);
+                                startActivity(mainActivity);
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                System.out.println("The read failed: " + databaseError.getCode());
+                            }
+                        });
+
+
                     }
                 }
             });
