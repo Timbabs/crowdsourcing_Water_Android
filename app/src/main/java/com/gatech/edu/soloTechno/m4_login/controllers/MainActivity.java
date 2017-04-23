@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity
                 //image_filed.setImageResource(R.drawable.solotech2);
                 user_field.setText(user.firstName + " " + user.lastName);
                 email_filed.setText(user.email);
+                accountType = user.accountType;
             }
 
             @Override

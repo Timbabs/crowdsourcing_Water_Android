@@ -41,6 +41,9 @@
         <activity
             android:name=".controllers.HistoricalReportActivity"
             android:label="HistoricalReportActivity" />
+        <activity
+            android:name=".controllers.DisplayGraphActivity"
+            android:label="DisplayGraphActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
