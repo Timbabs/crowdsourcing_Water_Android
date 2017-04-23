@@ -197,31 +197,33 @@ public class MainActivity extends AppCompatActivity
      */
     private void collectLatitudeLongitude(Map<String,Object> reports) {
         //iterate through each user
-        for (Map.Entry<String, Object> entry : reports.entrySet()){
-            //Get user map
-            singleUser = (Map) entry.getValue();
-            String latitude = (String) singleUser.get("latitude");
-            String longitude = (String) singleUser.get("longitude");
+        if(reports != null) {
+            for (Map.Entry<String, Object> entry : reports.entrySet()) {
+                //Get user map
+                singleUser = (Map) entry.getValue();
+                String latitude = (String) singleUser.get("latitude");
+                String longitude = (String) singleUser.get("longitude");
 
-            MainActivity.mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
-                    .title(
-                            ((String) singleUser.get("locationName"))
-                                    + " submitted by "
-                                    + ((String) singleUser.get("name"))
+                MainActivity.mMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
+                        .title(
+                                ((String) singleUser.get("locationName"))
+                                        + " submitted by "
+                                        + ((String) singleUser.get("name"))
 
-                    )
-                    .snippet(
-                            ((String) singleUser.get("waterType"))
-                                    + " type with condition "
-                                    + ((String) singleUser.get("waterCondition"))
-                                    + ". Report number: "
-                                    + ((String) singleUser.get("waterReportNumber"))
-                    )
+                        )
+                        .snippet(
+                                ((String) singleUser.get("waterType"))
+                                        + " type with condition "
+                                        + ((String) singleUser.get("waterCondition"))
+                                        + ". Report number: "
+                                        + ((String) singleUser.get("waterReportNumber"))
+                        )
 
-            );
-            MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+                );
+                MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
 
+            }
         }
 
     }
@@ -235,30 +237,33 @@ public class MainActivity extends AppCompatActivity
      **/
     private void addPurityReportData(Map<String,Object> reports) {
         //iterate through each user
-        for (Map.Entry<String, Object> entry : reports.entrySet()){
-            //Get user map
-            singleReport = (Map) entry.getValue();
-            String latitude = (String) singleReport.get("latitude");
-            String longitude = (String) singleReport.get("longitude");
+        if(reports != null) {
 
-            MainActivity.mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
-                    .title(
-                            ((String) singleReport.get("locationName"))
-                                    + " submitted by "
-                                    + ((String) singleReport.get("name"))
+            for (Map.Entry<String, Object> entry : reports.entrySet()) {
+                //Get user map
+                singleReport = (Map) entry.getValue();
+                String latitude = (String) singleReport.get("latitude");
+                String longitude = (String) singleReport.get("longitude");
 
-                    )
-                    .snippet(
-                            ((String) singleReport.get("waterCondition"))
-                                    + ". Report number: "
-                                    + ((String) singleReport.get("waterReportNumber"))
-                    )
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                MainActivity.mMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
+                        .title(
+                                ((String) singleReport.get("locationName"))
+                                        + " submitted by "
+                                        + ((String) singleReport.get("name"))
 
-            );
-            MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+                        )
+                        .snippet(
+                                ((String) singleReport.get("waterCondition"))
+                                        + ". Report number: "
+                                        + ((String) singleReport.get("waterReportNumber"))
+                        )
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
 
+                );
+                MainActivity.mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+
+            }
         }
 
     }

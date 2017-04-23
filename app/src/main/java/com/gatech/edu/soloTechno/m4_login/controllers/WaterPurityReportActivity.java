@@ -133,24 +133,27 @@ public class WaterPurityReportActivity extends FragmentActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of users in datasnapshot
-                        for (Map.Entry<String, Object> entry : ((Map<String,Object>) dataSnapshot.getValue()).entrySet()) {
-                            //Get user map
-                            Map singleUser = (Map) entry.getValue();
-                            s  = s + ((String) singleUser.get("locationName"))
-                                    + " submitted by "
-                                    + ((String) singleUser.get("name"))
-                                    + " of "
-                                    + ((String) singleUser.get("waterPurityCondition"))
-                                    + ". Report number: "
-                                    + ((String) singleUser.get("virusPPM"))
-                                    + ((String) singleUser.get("contaminantPPM"))
-                                    + ((String) singleUser.get("waterReportNumber"))
-                                    + ((String) singleUser.get("year"))
-                                    + ((String) singleUser.get("month"))
-                                    + System.lineSeparator()
-                                    + System.lineSeparator()
-                                    + System.lineSeparator();
+                        if(dataSnapshot.getValue() != null) {
+                            for (Map.Entry<String, Object> entry : ((Map<String,Object>) dataSnapshot.getValue()).entrySet()) {
+                                //Get user map
+                                Map singleUser = (Map) entry.getValue();
+                                s  = s + ((String) singleUser.get("locationName"))
+                                        + " submitted by "
+                                        + ((String) singleUser.get("name"))
+                                        + " of "
+                                        + ((String) singleUser.get("waterPurityCondition"))
+                                        + ". Report number: "
+                                        + ((String) singleUser.get("virusPPM"))
+                                        + ((String) singleUser.get("contaminantPPM"))
+                                        + ((String) singleUser.get("waterReportNumber"))
+                                        + ((String) singleUser.get("year"))
+                                        + ((String) singleUser.get("month"))
+                                        + System.lineSeparator()
+                                        + System.lineSeparator()
+                                        + System.lineSeparator();
+                            }
                         }
+
                     }
 
                     @Override

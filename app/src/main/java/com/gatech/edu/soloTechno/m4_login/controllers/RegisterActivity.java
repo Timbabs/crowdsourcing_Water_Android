@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String accountType;
     private String email;
     private String password;
-    static String firstName;
+    private String firstName;
     private String lastName;
     private String confirmPassword;
     private boolean validEmail;

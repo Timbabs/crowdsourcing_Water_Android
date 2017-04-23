@@ -65,7 +65,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private String accountType;
     private String email;
     private String password;
-    //static String firstName;
+    private String firstName;
     private String lastName;
 
     private FirebaseAuth mAuth;
@@ -110,9 +110,18 @@ public class EditProfileActivity extends AppCompatActivity {
                     email_text.setText(user.email);
                     password_text.setText(user.password);
                     confirmPassword_text.setText(user.password);
-                Random rand = new Random();
-                accountTypeSpinner.setSelection(rand.nextInt(4));
-
+                    String prevAccountType = user.accountType;
+                switch (prevAccountType) {
+                    case "Manager": accountTypeSpinner.setSelection(0);
+                        break;
+                    case "Worker": accountTypeSpinner.setSelection(1);
+                        break;
+                    case "Admin": accountTypeSpinner.setSelection(2);
+                        break;
+                    case "User": accountTypeSpinner.setSelection(3);
+                        break;
+                    default: accountTypeSpinner.setSelection(3);
+                }
             }
 
             @Override
@@ -139,13 +148,13 @@ public class EditProfileActivity extends AppCompatActivity {
                 //get user's info
                 accountType = accountTypeSpinner.getSelectedItem().toString().trim();
                 email = email_text.getText().toString().trim();
-                RegisterActivity.firstName = firstName_text.getText().toString().trim();
+                firstName = firstName_text.getText().toString().trim();
                 lastName = lastName_text.getText().toString().trim();
                 password = password_text.getText().toString().trim();
                 confirmPassword = confirmPassword_text.getText().toString().trim();
 
                 validEmail = isValidEmail(email);
-                validFirstName = isValidName(RegisterActivity.firstName);
+                validFirstName = isValidName(firstName);
                 validLastName = isValidName(lastName);
                 validPassword = isValidPassword(password, confirmPassword);
                 if (!validEmail || !validFirstName || !validLastName || !validPassword)
@@ -166,7 +175,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         if (user != null) {
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("firstName").setValue(RegisterActivity.firstName);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("firstName").setValue(firstName);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("lastName").setValue(lastName);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("accountType").setValue(accountType);
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).child("email").setValue(email);
@@ -177,7 +186,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
                             UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(RegisterActivity.firstName)
+                                    .setDisplayName(firstName)
                                     .build();
 
                             mAuth.getCurrentUser().updateProfile(addProfileName)

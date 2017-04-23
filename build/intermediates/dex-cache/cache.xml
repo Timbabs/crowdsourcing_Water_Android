@@ -2,121 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\4fc0d61065b5946c8faad890c3a1e1ba257cc377\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_58daab0758ab614ce0ef7361e8bf16982f0af35e.jar" />
+        sha1="f50bf757c3619a188704e206c4766ea433dbdb86">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9407692393bb6d74a873f93acd56862854d479c6/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\8525c4316fddf6cde6aa26bc9e221e5f7b6ca4e8\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_2ecc5fdbb49c2595743e92b9fa93eeee53abc3c1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\34e00c40fff3bf18f53c34d6eedfe6debf715694\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="987adec819c9a98faf215814f41195da48fc724e">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_5f7fa78e54f95752f9b61466c762191ee9320f0f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\c58b88c96e1f138d8ce735f93d9edbf472a43be7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_eebb97dc4ce2a78de2526368f7003369b8951e5c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\cfb19527262721eca898d722a9ddae55753f6a67\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_014dad5fa62e5f534a57493e2d00cadf561294e7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\6135249070d26fb30ba477200b1a9da83ff5ff4d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_bd9471e243abbea4dfddc9f113edd8979570fc9f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\12ace08a957fe3f1d061c4b801d3f59347e53a81\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_4173e9580d68ec9042ca26e85e78250f8f9434a7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\28e1788d37b2283b73031a0a41de4215639ef3e7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_ae080dbdbc4b3328cc1b5ec41e7ffc7114061943.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\bd638233e455cc2d4f9826082357ef8e9eb9e9e2\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_23efd65763147f314747d3360a40c5ac844c918f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\a2762f8a1a0a04a26eb557c5d453d14957977b1c\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_a0e25038ddabfb700527f793619640aaa121c4f8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\7de29b3c29d53b8e5c6193f4048ec0cfdd4b5f3a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_cd4849e7fe4f9c63905a44b3ca9a9d0eb471dd24.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\4981bab9a5954812a9d6e09a35d468fbd639a4fd\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_2fd12ce6f9c3dc366a2fd1bbcb60d7097b800ea6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Joon.Y.K\.android\build-cache\49e6a7ec7ddeb62b3f66fc4589bf8c080d172de9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="C:\Users\Joon.Y.K\Desktop\GT\Spring 2017\SoloWaterAndroid\app\build\intermediates\pre-dexed\debug\classes_4844930752be90989e164bd21a828185f77e68f2.jar" />
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/timothybaba/Documents/School_Work/Spring 2017/CS-2340-A/SoloWaterAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5298e4cc2714fecacc660c26f109b86f1cdcf54b/classes.dex" />
     </item>
 
 </items>
