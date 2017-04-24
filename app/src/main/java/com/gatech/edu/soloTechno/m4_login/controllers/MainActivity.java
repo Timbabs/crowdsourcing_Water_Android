@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity
 
         String userName = mAuth.getCurrentUser().getDisplayName();
 
-        mFirebaseDatabase.child(userName.contains(" ")? userName.split(" ")[0]: userName).addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.child( userName.split(" ")[0]).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -339,6 +339,7 @@ public class MainActivity extends AppCompatActivity
             Intent editProfileActivity = new Intent(getApplicationContext(), EditProfileActivity.class);
             editProfileActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             editProfileActivity.putExtra("ACCOUNT_TYPE", accountType);
+            editProfileActivity.putExtra("GoogleSigned", "true");
             startActivity(editProfileActivity);
             finish();
 

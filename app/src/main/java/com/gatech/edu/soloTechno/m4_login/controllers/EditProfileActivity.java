@@ -101,9 +101,7 @@ public class EditProfileActivity extends AppCompatActivity {
         accountTypeSpinner.setAdapter(adapter);
 
 
-        String userName = mAuth.getCurrentUser().getDisplayName();
-
-        mFirebaseDatabase.child(userName.contains(" ")? userName.split(" ")[0]: userName).addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName().split(" ")[0]).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue(User.class) != null) {
@@ -181,11 +179,15 @@ public class EditProfileActivity extends AppCompatActivity {
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         if (user != null) {
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("firstName").setValue(firstName);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("lastName").setValue(lastName);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("accountType").setValue(accountType);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("email").setValue(email);
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).child("password").setValue(password);
+                            String userName = mAuth.getCurrentUser().getDisplayName().split(" ")[0];
+                            mFirebaseDatabase.child(userName).child("firstName").setValue(firstName);
+                            mFirebaseDatabase.child(userName).child("lastName").setValue(lastName);
+                            mFirebaseDatabase.child(userName).child("accountType").setValue(accountType);
+                            if(!getIntent().hasExtra("GoogleSigned")) {
+                                mFirebaseDatabase.child(userName).child("password").setValue(password);
+                            }
+                            mFirebaseDatabase.child(userName).child("email").setValue(email);
+
                             mAuth.getCurrentUser().updateEmail(email);
                             mAuth.getCurrentUser().updatePassword(password);
 
