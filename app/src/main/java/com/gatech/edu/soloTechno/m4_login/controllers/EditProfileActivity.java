@@ -101,28 +101,33 @@ public class EditProfileActivity extends AppCompatActivity {
         accountTypeSpinner.setAdapter(adapter);
 
 
-        //Auto fills the edit profile page with user's info
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
+        String userName = mAuth.getCurrentUser().getDisplayName();
+
+        mFirebaseDatabase.child(userName.contains(" ")? userName.split(" ")[0]: userName).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
+                if(dataSnapshot.getValue(User.class) != null) {
+                    User user = dataSnapshot.getValue(User.class);
                     firstName_text.setText(user.firstName);
                     lastName_text.setText(user.lastName);
                     email_text.setText(user.email);
                     password_text.setText(user.password);
                     confirmPassword_text.setText(user.password);
                     String prevAccountType = user.accountType;
-                switch (prevAccountType) {
-                    case "Manager": accountTypeSpinner.setSelection(0);
-                        break;
-                    case "Worker": accountTypeSpinner.setSelection(1);
-                        break;
-                    case "Admin": accountTypeSpinner.setSelection(2);
-                        break;
-                    case "User": accountTypeSpinner.setSelection(3);
-                        break;
-                    default: accountTypeSpinner.setSelection(3);
+                    switch (prevAccountType) {
+                        case "Manager": accountTypeSpinner.setSelection(0);
+                            break;
+                        case "Worker": accountTypeSpinner.setSelection(1);
+                            break;
+                        case "Admin": accountTypeSpinner.setSelection(2);
+                            break;
+                        case "User": accountTypeSpinner.setSelection(3);
+                            break;
+                        default: accountTypeSpinner.setSelection(3);
+                    }
+
                 }
+
             }
 
             @Override

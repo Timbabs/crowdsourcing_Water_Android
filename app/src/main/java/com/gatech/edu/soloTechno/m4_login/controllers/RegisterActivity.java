@@ -382,7 +382,7 @@ public class RegisterActivity extends AppCompatActivity {
         // store app title to 'app_title' node
         mFirebaseInstance.getReference("soloWater").setValue("Realtime Database");
 
-            userId = mAuth.getCurrentUser().getUid();
+            //userId = mAuth.getCurrentUser().getUid();
             //userId = mFirebaseDatabase.push().getKey();
 
         User mUser = new User(firstName, lastName, accountType, email, password);

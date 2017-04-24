@@ -24,6 +24,10 @@
     <string name="drawer_water_purity_list">Water Purity List</string>
     <string name="drawer_historical_report">Historical Report</string>
 
+    <string name="loading">Loading…</string>
+    <string name="google_status_fmt">Google User: %s</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+
 
     <string name="pick_date">pick date</string>
     <string name="pick_time">pick time</string>

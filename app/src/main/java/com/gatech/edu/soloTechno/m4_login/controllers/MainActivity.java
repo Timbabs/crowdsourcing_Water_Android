@@ -24,6 +24,9 @@ import android.widget.TextView;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.User;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,6 +37,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity
     private String accountType;
 
 
+
    /* private String locationName;
     private String name;
     private String waterReportNumber;
@@ -76,9 +81,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
 
-
-
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -100,6 +104,10 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
+
+
+
         /**
          * Displays a welcome message to the AppBar once a user is successfully logged in.
          */
@@ -109,15 +117,26 @@ public class MainActivity extends AppCompatActivity
         final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
         final TextView user_field = (TextView)header.findViewById(R.id.userField);
         final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
 
+
+        String userName = mAuth.getCurrentUser().getDisplayName();
+
+        mFirebaseDatabase.child(userName.contains(" ")? userName.split(" ")[0]: userName).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
-                //image_filed.setImageResource(R.drawable.solotech2);
-                user_field.setText(user.firstName + " " + user.lastName);
-                email_filed.setText(user.email);
+
+                if(dataSnapshot.getValue(User.class) != null) {
+
+
+
+                    User user = dataSnapshot.getValue(User.class);
+                    getSupportActionBar().setTitle("Welcome, " + user.firstName + "!");
+                    //image_filed.setImageResource(R.drawable.solotech2);
+                    user_field.setText(user.firstName + " " + user.lastName);
+                    email_filed.setText(user.email);
+                }
+
+
             }
 
             @Override
@@ -309,8 +328,11 @@ public class MainActivity extends AppCompatActivity
              */
             FirebaseAuth.getInstance().signOut();
 
+
+
             Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
             logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            logoutActivity.putExtra("GoogleSigned", "true");
             startActivity(logoutActivity);
             finish();
         } else if (id == R.id.nav_edit_profile) {
