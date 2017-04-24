@@ -27,7 +27,7 @@ public class WaterPurityListActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<WaterPurityReportData> purityList = new ArrayList<WaterPurityReportData>();
+    private List<WaterPurityReportData> purityList = new ArrayList<>();
 
     private DatabaseReference mFirebaseDatabase;
     private Map purityReportMap;
@@ -39,40 +39,45 @@ public class WaterPurityListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_water_purity_list);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
+       mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new WaterPurityListAdapter(getBaseContext(), purityList);
-        mRecyclerView.setAdapter(mAdapter);
+
+
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("water purity reports");
 
         // Fetches the needed purity information from database
-        ref.addListenerForSingleValueEvent(
+        ref.addValueEventListener(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Gets information from database using Map
-                        for (Map.Entry<String, Object> entry : ((Map<String, Object>) dataSnapshot.getValue()).entrySet()){
-                            //Get user map
-                            singleUser = (Map) entry.getValue();
-                            String latitude = (String) singleUser.get("latitude");
-                            String longitude = (String) singleUser.get("longitude");
-                            String waterReportNumber = (String) singleUser.get("waterReportNumber");
-                            String contaminantPPM = (String) singleUser.get("contaminantPPM");
-                            String name = (String) singleUser.get("name");
-                            String locationName = (String) singleUser.get("locationName");
-                            String waterCondition = (String) singleUser.get("waterCondition");
-                            String virusPPM = (String) singleUser.get("virusPPM");
-                            String year = (String) singleUser.get("year");
-                            String month = (String) singleUser.get("month");
+                        int i = 0;
+                        if(dataSnapshot.getValue() != null) {
+                            for (Map.Entry<String, Object> entry : ((Map<String, Object>) dataSnapshot.getValue()).entrySet()){
+                                //Get user map
+                                singleUser = (Map) entry.getValue();
+                                String latitude = (String) singleUser.get("latitude");
+                                String longitude = (String) singleUser.get("longitude");
+                                String waterReportNumber = (String) singleUser.get("waterReportNumber");
+                                String contaminantPPM = (String) singleUser.get("contaminantPPM");
+                                String name = (String) singleUser.get("name");
+                                String locationName = (String) singleUser.get("locationName");
+                                String waterCondition = (String) singleUser.get("waterCondition");
+                                String virusPPM = (String) singleUser.get("virusPPM");
+                                String year = (String) singleUser.get("year");
+                                String month = (String) singleUser.get("month");
 
-                            //Add each data into the list to display on Recycler View
-                            purityList.add(new WaterPurityReportData(waterReportNumber, name, locationName, latitude, longitude
-                                    , waterCondition, virusPPM, contaminantPPM, year, month));
+                                //Add each data into the list to display on Recycler View
+                                purityList.add(new WaterPurityReportData(waterReportNumber, name, locationName, latitude, longitude
+                                        , waterCondition, virusPPM, contaminantPPM, year, month));
+                                System.out.println(purityList.get(i++));
+                            }
                         }
+
 
 
                     }
@@ -84,6 +89,8 @@ public class WaterPurityListActivity extends AppCompatActivity {
                     }
                 });
 
+        mAdapter = new WaterPurityListAdapter(getBaseContext(), purityList);
+        mRecyclerView.setAdapter(mAdapter);
 
     }
 }

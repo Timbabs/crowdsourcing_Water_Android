@@ -79,6 +79,7 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        accountType = getIntent().getStringExtra("ACCOUNT_TYPE");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -253,6 +254,7 @@ public class EditProfileActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra("ACCOUNT_TYPE", accountType);
         startActivity(intent);
         //finish();
     }

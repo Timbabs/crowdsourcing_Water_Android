@@ -106,8 +106,8 @@ public class HistoricalReportActivity extends FragmentActivity {
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                data1 = ppmSpinner.getSelectedItem().toString().trim() == "select"? null: ppmSpinner.getSelectedItem().toString().trim();
-                data2 = locationSpinner.getSelectedItem().toString().trim() == "select"? null: locationSpinner.getSelectedItem().toString().trim();
+                data2 = ppmSpinner.getSelectedItem().toString().trim() == "select"? null: ppmSpinner.getSelectedItem().toString().trim();
+                data1 = locationSpinner.getSelectedItem().toString().trim() == "select"? null: locationSpinner.getSelectedItem().toString().trim();
                 data3 = yearSpinner.getSelectedItem().toString().trim() == "select"? null: yearSpinner.getSelectedItem().toString().trim();
 
 

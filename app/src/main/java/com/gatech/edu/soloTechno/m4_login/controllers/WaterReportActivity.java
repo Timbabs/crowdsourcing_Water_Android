@@ -204,24 +204,10 @@ public class WaterReportActivity extends FragmentActivity {
                                             // Whatever...
                                             // when successfully saved user water report, direct user to main screen
                                             saveArray();
-                                            mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addListenerForSingleValueEvent(new ValueEventListener() {
-
-                                                @Override
-                                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                                    User user = dataSnapshot.getValue(User.class);
-                                                    String accountType = user.accountType;
-
-                                                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                                    mainActivity.putExtra("ACCOUNT_TYPE", accountType);
-                                                    startActivity(mainActivity);
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(DatabaseError databaseError) {
-                                                    System.out.println("The read failed: " + databaseError.getCode());
-                                                }
-                                            });
+                                            String accountType = getIntent().getStringExtra("ACCOUNT_TYPE");
+                                            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                            mainActivity.putExtra("ACCOUNT_TYPE", accountType);
+                                            startActivity(mainActivity);
                                         }
                                     }).show();
                         }

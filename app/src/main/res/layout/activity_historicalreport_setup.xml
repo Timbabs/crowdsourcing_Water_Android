@@ -19,26 +19,26 @@
             android:weightSum="1">
 
             <TextView
-                android:text = "Location"
                 android:id="@+id/water_report_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="30dp"
-                android:layout_alignParentLeft="true"/>
+                android:text="Plot  (x-axis)" />
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/location_spinner"/>
 
             <TextView
-                android:text="Virus / Contaminant"
+                android:id="@+id/water_type_spinner_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/water_type_spinner_text"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="38dp"
-                android:layout_alignParentLeft="true"/>
+                android:text="Against " />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -46,13 +46,13 @@
                 android:id="@+id/virusPPM_spinner"/>
 
             <TextView
-                android:text="Year"
+                android:id="@+id/water_condition_spinner_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/water_condition_spinner_text"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="38dp"
-                android:layout_alignParentLeft="true"/>
+                android:text="And against (Optional)" />
 
             <Spinner
                 android:layout_width="match_parent"

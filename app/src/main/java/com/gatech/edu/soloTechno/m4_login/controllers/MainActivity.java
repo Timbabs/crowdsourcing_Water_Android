@@ -316,14 +316,17 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_edit_profile) {
             Intent editProfileActivity = new Intent(getApplicationContext(), EditProfileActivity.class);
             editProfileActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            editProfileActivity.putExtra("ACCOUNT_TYPE", accountType);
             startActivity(editProfileActivity);
             finish();
 
         } else if (id == R.id.nav_water_source_report) {
             Intent waterReportActivity = new Intent(getApplicationContext(), WaterReportActivity.class);
+            waterReportActivity.putExtra("ACCOUNT_TYPE", accountType);
             startActivity(waterReportActivity);
         } else if (id == R.id.nav_water_purity_report) {
             Intent waterPurityReportActivity = new Intent(getApplicationContext(), WaterPurityReportActivity.class);
+            waterPurityReportActivity.putExtra("ACCOUNT_TYPE", accountType);
             startActivity(waterPurityReportActivity);
         } else if (id == R.id.nav_water_purity_list) {
             Intent waterPurityListActivity = new Intent(getApplicationContext(), WaterPurityListActivity.class);
