@@ -20,6 +20,12 @@ import com.jjoe64.graphview.series.PointsGraphSeries;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 
 /**
  * Created by timothybaba on 4/4/17.
@@ -106,30 +112,41 @@ public class DisplayGraphActivity extends FragmentActivity {
 
     void plot (ArrayList list1, ArrayList list2) {
         series = new LineGraphSeries<>();
+        HashMap<Double, Double> map =  new HashMap<>();
 
-        int length = list2.size();
-        Collections.sort(list1);
-        Collections.sort(list2);
-        for(int i = 0; i< length; i++) {
-            series.appendData(new DataPoint(Double.parseDouble((String)list1.get(i)), Double.parseDouble((String)list2.get(i))), true, length);
+        Iterator i1 = list1.iterator();
+        Iterator i2 = list2.iterator();
+        while (i1.hasNext() && i2.hasNext()) {
+            map.put(Double.parseDouble((String)i1.next()), Double.parseDouble((String)i2.next()));
         }
+        SortedSet<Double> keys = new TreeSet<>(map.keySet());
+        for (Double key : keys) {
+            series.appendData(new DataPoint(key, map.get(key)), true, map.size());
 
+        }
         graph.addSeries(series);
     }
     void plotPoint (ArrayList list1, ArrayList list2) {
         pointSeries = new PointsGraphSeries<>();
 
-        int length = list2.size();
-        Collections.sort(list1);
-        Collections.sort(list2);
-        for(int i = 0; i< length; i++) {
-            pointSeries.appendData(new DataPoint(Double.parseDouble((String)list1.get(i)), Double.parseDouble((String)list2.get(i))), true, length);
+        HashMap<Double, Double> map =  new HashMap<>();
+
+        Iterator i1 = list1.iterator();
+        Iterator i2 = list2.iterator();
+        while (i1.hasNext() && i2.hasNext()) {
+            map.put(Double.parseDouble((String)i1.next()), Double.parseDouble((String)i2.next()));
+        }
+        SortedSet<Double> keys = new TreeSet<>(map.keySet());
+        for (Double key : keys) {
+
+            pointSeries.appendData(new DataPoint(key, map.get(key)), true, map.size());
+
         }
 
         graph.getSecondScale().addSeries(pointSeries);
         // the y bounds are always manual for second scale
-        graph.getSecondScale().setMinY(Double.parseDouble((String)list2.get(0)));
-        graph.getSecondScale().setMaxY(Double.parseDouble((String)list2.get(list1.size() - 1)));
+        graph.getSecondScale().setMinY(map.get(keys.first()));
+        graph.getSecondScale().setMaxY(map.get(keys.last()));
        // series.setColor(Color.RED);
         graph.getGridLabelRenderer().setVerticalLabelsSecondScaleColor(Color.BLACK);
 
@@ -138,27 +155,39 @@ public class DisplayGraphActivity extends FragmentActivity {
     void plot2 (ArrayList list1, ArrayList list2) {
         series = new LineGraphSeries<>();
 
-        int length = list2.size();
-        Collections.sort(list1);
-        Collections.sort(list2);
-        for(int i = 0; i< length; i++) {
-            series.appendData(new DataPoint(Double.parseDouble((String)list1.get(i)), Double.parseDouble((String)list2.get(i))), true, length);
+        HashMap<Double, Double> map =  new HashMap<>();
+
+        Iterator i1 = list1.iterator();
+        Iterator i2 = list2.iterator();
+        while (i1.hasNext() && i2.hasNext()) {
+            map.put(Double.parseDouble((String)i1.next()), Double.parseDouble((String)i2.next()));
+        }
+        SortedSet<Double> keys = new TreeSet<>(map.keySet());
+        for (Double key : keys) {
+            series.appendData(new DataPoint(key, map.get(key)), true, map.size());
+
         }
         graph.getSecondScale().addSeries(series);
         // the y bounds are always manual for second scale
-        graph.getSecondScale().setMinY(Double.parseDouble((String)list2.get(0)));
-        graph.getSecondScale().setMaxY(Double.parseDouble((String)list2.get(list1.size() - 1)));
+        graph.getSecondScale().setMinY(map.get(keys.first()));
+        graph.getSecondScale().setMaxY(map.get(keys.last()));
         series.setColor(Color.RED);
         graph.getGridLabelRenderer().setVerticalLabelsSecondScaleColor(Color.RED);
     }
-    void plotBarChart (ArrayList list2, ArrayList list1) {
+    void plotBarChart (ArrayList list1, ArrayList list2) {
         barSeries = new BarGraphSeries<>();
 
-        int length = list2.size();
-        Collections.sort(list1);
-        Collections.sort(list2);
-        for(int i = 0; i< length; i++) {
-            barSeries.appendData(new DataPoint(Double.parseDouble((String)list2.get(i)), Double.parseDouble((String)list1.get(i))), true, length);
+        HashMap<Double, Double> map =  new HashMap<>();
+
+        Iterator i1 = list1.iterator();
+        Iterator i2 = list2.iterator();
+        while (i1.hasNext() && i2.hasNext()) {
+            map.put(Double.parseDouble((String)i1.next()), Double.parseDouble((String)i2.next()));
+        }
+        SortedSet<Double> keys = new TreeSet<>(map.keySet());
+        for (Double key : keys) {
+            barSeries.appendData(new DataPoint(key, map.get(key)), true, map.size());
+
         }
 
 
