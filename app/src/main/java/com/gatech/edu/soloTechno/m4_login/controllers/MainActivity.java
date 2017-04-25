@@ -333,6 +333,7 @@ public class MainActivity extends AppCompatActivity
             Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
             logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             logoutActivity.putExtra("GoogleSigned", "true");
+            logoutActivity.putExtra("ACCOUNT_TYPE", accountType);
             startActivity(logoutActivity);
             finish();
         } else if (id == R.id.nav_edit_profile) {

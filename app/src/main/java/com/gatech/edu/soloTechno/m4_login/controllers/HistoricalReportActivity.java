@@ -76,10 +76,6 @@ public class HistoricalReportActivity extends FragmentActivity {
                     contaminants.add(contaminantsData);
                 }
 
-                for(int i =0; i <years.size(); i++) {
-                    System.out.println(years.get(i));
-                }
-
                 /*ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>(HistoricalReportActivity.this, android.R.layout.simple_spinner_item, locations);
                 locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 locationSpinner.setAdapter(locationAdapter);

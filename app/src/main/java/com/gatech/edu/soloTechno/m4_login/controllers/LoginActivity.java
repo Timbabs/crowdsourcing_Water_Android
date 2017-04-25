@@ -97,7 +97,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
     private String start = "false";
-    private int begin_index = 0;
+    private String account_Type = "User";
+
 
     /**
      * Creates an instance of Firebase authentication
@@ -274,13 +275,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                 }
                             };
 
-                            if(begin_index == 0) {
-                                signIn();
-                                begin_index++;
-                            }
-
                             Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                            mainActivity.putExtra("ACCOUNT_TYPE", "User");
+
+                           account_Type = getIntent().hasExtra("ACCOUNT_TYPE")? getIntent().getStringExtra("ACCOUNT_TYPE"):"User";
+                            mainActivity.putExtra("ACCOUNT_TYPE", account_Type);
                             startActivity(mainActivity);
 
 
