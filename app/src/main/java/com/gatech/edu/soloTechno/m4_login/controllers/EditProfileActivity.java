@@ -187,10 +187,9 @@ public class EditProfileActivity extends AppCompatActivity {
                             mFirebaseDatabase.child(userName).child("firstName").setValue(firstName);
                             mFirebaseDatabase.child(userName).child("lastName").setValue(lastName);
                             mFirebaseDatabase.child(userName).child("accountType").setValue(accountType);
-                            if(!getIntent().hasExtra("GoogleSigned")) {
-                                mFirebaseDatabase.child(userName).child("password").setValue(password);
-                            }
-                            mFirebaseDatabase.child(userName).child("email").setValue(email);
+//                            if(!getIntent().hasExtra("GoogleSigned")) {
+//                                mFirebaseDatabase.child(userName).child("password").setValue(password);
+//                            mFirebaseDatabase.child(userName).child("email").setValue(email);
 
                             mAuth.getCurrentUser().updateEmail(email);
                             mAuth.getCurrentUser().updatePassword(password);
@@ -272,6 +271,9 @@ public class EditProfileActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "User account deleted.");
+                                    TextView status_Msg = (TextView) findViewById(R.id.account_status);
+                                    status_Msg.setText("User Account Deleted");
+                                    status_Msg.setTextColor(Color.RED);
                                     mFirebaseDatabase.child(databaseID).removeValue();
                                     Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
                                     logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -291,7 +291,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
 
-        mFirebaseDatabase.child(firstName.split(" ")[0]).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(firstName.split(" ")[0]).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(!dataSnapshot.exists()) {
