@@ -89,8 +89,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private View mProgressView;
     private View mLoginFormView;
     private GoogleApiClient mGoogleApiClient;
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
     private ProgressDialog mProgressDialog;
     private DatabaseReference mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
@@ -110,6 +108,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -148,13 +148,49 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         });
 
+        final Button res_Button = (Button) findViewById(R.id.reset_button);
+        res_Button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String emailEntered = mEmailView.getText().toString().trim();
+
+                if (TextUtils.isEmpty(emailEntered)) {
+                    mEmailView.setError("Enter Email");
+                    mEmailView.requestFocus();
+                    return;
+                } else {
+                    mAuth.sendPasswordResetEmail(emailEntered)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d(TAG, "Email sent.");
+                                        Toast.makeText(LoginActivity.this, "An email was sent to "+ emailEntered,
+                                                Toast.LENGTH_SHORT).show();
+                                        res_Button.requestFocus();
+                                    } else {
+                                        mEmailView.setError("An account does not exist with this email");
+                                        mEmailView.requestFocus();
+                                        return;
+
+                                    }
+                                }
+                            });
+
+                }
+
+
+            }
+        });
+
+
 
 
 
         /**
          * Assigns an instance of Firebase authentication
          */
-        mAuth = FirebaseAuth.getInstance();
+
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -608,8 +644,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     // the auth state listener will be notified and logic to handle the
                     // signed in user can be handled in the listener.
                     if (!task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, R.string.auth_failed,
-                                Toast.LENGTH_SHORT).show();
                         mEmailView.setError(getString(R.string.error_invalid_email));
                         mEmailView.requestFocus();
                         mPasswordView.setError(getString(R.string.error_incorrect_password));
