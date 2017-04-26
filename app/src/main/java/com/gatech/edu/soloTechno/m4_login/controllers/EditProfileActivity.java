@@ -2,6 +2,7 @@ package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -17,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gatech.edu.soloTechno.m4_login.R;
@@ -67,6 +69,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private String password;
     private String firstName;
     private String lastName;
+    private String databaseID;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mFirebaseDatabase;
@@ -106,6 +109,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue(User.class) != null) {
                     User user = dataSnapshot.getValue(User.class);
+                    databaseID = user.firstName;
                     firstName_text.setText(user.firstName);
                     lastName_text.setText(user.lastName);
                     email_text.setText(user.email);
@@ -253,6 +257,31 @@ public class EditProfileActivity extends AppCompatActivity {
 
             }
 
+        });
+
+        final Button delete_Account = (Button) findViewById(R.id.delete_account);
+        delete_Account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delete_Account.requestFocus();
+                FirebaseUser user = mAuth.getCurrentUser();
+
+                user.delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User account deleted.");
+                                    mFirebaseDatabase.child(databaseID).removeValue();
+                                    Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                                    logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(logoutActivity);
+                                } else {
+                                    System.out.println("Not Done");
+                                }
+                            }
+                        });
+            }
         });
 
     }

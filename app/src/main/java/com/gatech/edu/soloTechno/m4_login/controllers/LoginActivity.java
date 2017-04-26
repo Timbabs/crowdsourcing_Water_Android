@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private View mLoginFormView;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
-    private DatabaseReference mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
+    private DatabaseReference mFirebaseDatabase;
 
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -110,6 +110,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

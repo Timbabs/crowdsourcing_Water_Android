@@ -98,8 +98,6 @@ tools:context="com.gatech.edu.soloTechno.m4_login.controllers.LoginActivity">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
-
-
             />
 
             <Button
@@ -110,7 +108,7 @@ tools:context="com.gatech.edu.soloTechno.m4_login.controllers.LoginActivity">
                 android:layout_marginTop="120dp"
                 android:layout_marginLeft="95dp"
                 android:layout_weight="0.97"
-                android:text="Reset Password?"
+                android:text="Forgot Password?"
                 android:textStyle="bold" />
 
 

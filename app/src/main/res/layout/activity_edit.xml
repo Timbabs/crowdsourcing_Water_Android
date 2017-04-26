@@ -35,6 +35,21 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/update_button" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="40dp"
+                            android:text="Want to delete your account?"
+                            android:id ="@+id/account_status"/>
+
+                        <Button
+                            android:id="@+id/delete_account"
+                            style="?android:textAppearanceSmall"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:text="Delete ACCOUNT"
+                            android:textStyle="bold" />
+
 
                         <EditText
                             android:layout_width="match_parent"
