@@ -250,9 +250,29 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         lastName = acct.getFamilyName();
         email = acct.getEmail();
 
-        final User mUser = new User(firstName, lastName, "", email, "");
-        mFirebaseDatabase.child(firstName).setValue(mUser);
+        final User mUser = new User(firstName, lastName, "User", email, "");
 
+
+
+        mFirebaseDatabase.child(firstName.split(" ")[0]).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists()) {
+                    mFirebaseDatabase.child(firstName).setValue(mUser);
+
+                } else {
+                    User user = dataSnapshot.getValue(User.class);
+                    account_Type = user.accountType;
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -277,7 +297,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                             Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
 
-                           account_Type = getIntent().hasExtra("ACCOUNT_TYPE")? getIntent().getStringExtra("ACCOUNT_TYPE"):"User";
                             mainActivity.putExtra("ACCOUNT_TYPE", account_Type);
                             startActivity(mainActivity);
 
