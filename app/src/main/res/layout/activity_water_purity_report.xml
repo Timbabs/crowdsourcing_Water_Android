@@ -8,6 +8,7 @@
               android:paddingLeft="@dimen/activity_horizontal_margin"
               android:paddingRight="@dimen/activity_horizontal_margin"
               android:paddingTop="@dimen/activity_vertical_margin"
+              android:background="@drawable/images"
               tools:context="com.gatech.edu.soloTechno.m4_login.controllers.WaterReportActivity">
 
     <!-- Submit progress -->
@@ -57,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="30dp"
-                android:layout_alignParentLeft="true"/>
+                android:layout_alignParentLeft="true"
+                />
 
             <fragment
                 android:id="@+id/place_autocomplete_fragment"
