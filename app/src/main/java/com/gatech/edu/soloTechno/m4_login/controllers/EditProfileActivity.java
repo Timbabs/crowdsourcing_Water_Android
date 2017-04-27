@@ -271,11 +271,12 @@ public class EditProfileActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "User account deleted.");
-                                    TextView status_Msg = (TextView) findViewById(R.id.account_status);
-                                    status_Msg.setText("User Account Deleted");
-                                    status_Msg.setTextColor(Color.RED);
+//                                    TextView status_Msg = (TextView) findViewById(R.id.account_status);
+//                                    status_Msg.setText("User Account Deleted");
+//                                    status_Msg.setTextColor(Color.RED);
                                     mFirebaseDatabase.child(databaseID).removeValue();
                                     Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                                    logoutActivity.putExtra("Deleted", true);
                                     logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(logoutActivity);
                                 } else {

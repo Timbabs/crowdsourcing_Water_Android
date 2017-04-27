@@ -12,6 +12,7 @@ import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -108,6 +110,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        if(getIntent().hasExtra("Deleted")) {
+           Toast toast =  Toast.makeText(LoginActivity.this, "Account Deleted! ",
+                    Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP| Gravity.CENTER, 0, 0);
+            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+            v.setTextColor(Color.RED);
+            toast.show();
+        }
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");

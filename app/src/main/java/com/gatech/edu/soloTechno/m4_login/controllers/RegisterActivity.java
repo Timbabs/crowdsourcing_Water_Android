@@ -175,9 +175,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     // the auth state listener will be notified and logic to handle the
                                     // signed in user can be handled in the listener.
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(), "Sorry, an account with this email already exist",
-                                               Toast.LENGTH_SHORT).show();
-                                        email_text.setError("Try with another email account");
+//                                        Toast.makeText(getApplicationContext(), "Sorry, an account with this email already exist",
+//                                               Toast.LENGTH_SHORT).show();
+                                        email_text.setError("An account already exist with this email account");
                                         View focusView = email_text;
                                         focusView.requestFocus();
                                         return;
