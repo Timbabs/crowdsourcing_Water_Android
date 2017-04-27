@@ -260,9 +260,11 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
+                FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                        createFirebaseUserProfile(user);
+                    createFirebaseUserProfile(mAuth.getCurrentUser());
+
+
 
                     /*Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -385,11 +387,12 @@ public class RegisterActivity extends AppCompatActivity {
             //userId = mAuth.getCurrentUser().getUid();
             //userId = mFirebaseDatabase.push().getKey();
 
-        User mUser = new User(firstName, lastName, accountType, email, "");
+        final User mUser = new User(firstName, lastName, accountType, email, "");
+        //make this final later
+        String id = user.getUid();
+        mFirebaseDatabase.child(id).setValue(mUser);
+        mAuth.removeAuthStateListener(mAuthListener);
 
-
-
-        mFirebaseDatabase.child(firstName).setValue(mUser);
 
     }
 

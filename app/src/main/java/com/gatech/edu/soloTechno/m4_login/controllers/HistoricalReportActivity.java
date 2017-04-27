@@ -68,6 +68,8 @@ public class HistoricalReportActivity extends FragmentActivity {
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     // String locationName = areaSnapshot.child("locationName").getValue(String.class);
                     String yearData = areaSnapshot.child("year").getValue(String.class);
+                    //Try this
+                   // String yearData = (String)areaSnapshot.child("year").getValue();
                     String virusData = areaSnapshot.child("virusPPM").getValue(String.class);
                     String contaminantsData = areaSnapshot.child("contaminantPPM").getValue(String.class);
                     // locations.add(locationName);

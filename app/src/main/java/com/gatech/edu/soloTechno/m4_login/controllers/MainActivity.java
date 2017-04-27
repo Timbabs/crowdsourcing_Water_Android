@@ -119,9 +119,9 @@ public class MainActivity extends AppCompatActivity
         final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
 
 
-        String userName = mAuth.getCurrentUser().getDisplayName();
+        String userID = mAuth.getCurrentUser().getUid();
 
-        mFirebaseDatabase.child( userName.split(" ")[0]).addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.child( userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 

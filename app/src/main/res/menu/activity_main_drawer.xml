@@ -9,19 +9,19 @@
         <item
             android:id="@+id/nav_water_source_report"
             android:icon="@drawable/ic_local_drink_black_24dp"
-            android:title="@string/drawer_water_source_report"/>
+            android:title="Submit Source Report"/>
         <item
             android:id="@+id/nav_water_purity_report"
             android:icon="@drawable/ic_local_drink_black_24dp"
-            android:title="@string/drawer_water_purity_report"/>
+            android:title="Submit Purity Report"/>
         <item
             android:id="@+id/nav_water_purity_list"
             android:icon="@drawable/ic_local_drink_black_24dp"
-            android:title="@string/drawer_water_purity_list"/>
+            android:title="View Purity List"/>
         <item
             android:id="@+id/nav_historical_report"
             android:icon="@drawable/ic_local_drink_black_24dp"
-            android:title="@string/drawer_historical_report"/>
+            android:title="View Historical Report"/>
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_exit_to_app_black_24dp"

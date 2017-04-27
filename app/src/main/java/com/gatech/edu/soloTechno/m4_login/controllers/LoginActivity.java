@@ -302,11 +302,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
 
-        mFirebaseDatabase.child(firstName.split(" ")[0]).addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(!dataSnapshot.exists()) {
-                    mFirebaseDatabase.child(firstName).setValue(mUser);
+                    mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).setValue(mUser);
 
                 } else {
                     User user = dataSnapshot.getValue(User.class);
@@ -660,13 +660,20 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     // the auth state listener will be notified and logic to handle the
                     // signed in user can be handled in the listener.
                     if (!task.isSuccessful()) {
+
+                        Toast toast =  Toast.makeText(LoginActivity.this, "No account exist with this info ",
+                                Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.TOP| Gravity.CENTER, 0, 0);
+                        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                        v.setTextColor(Color.RED);
+                        toast.show();
                         mEmailView.setError(getString(R.string.error_invalid_email));
                         mEmailView.requestFocus();
                         mPasswordView.setError(getString(R.string.error_incorrect_password));
                         mPasswordView.requestFocus();
                     } else {
                         // Sign user in with email
-                        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName()).addValueEventListener(new ValueEventListener() {
+                        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
 
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {

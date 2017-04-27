@@ -104,12 +104,12 @@ public class EditProfileActivity extends AppCompatActivity {
         accountTypeSpinner.setAdapter(adapter);
 
 
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getDisplayName().split(" ")[0]).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseID = mAuth.getCurrentUser().getUid();
+                mFirebaseDatabase.child(databaseID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue(User.class) != null) {
                     User user = dataSnapshot.getValue(User.class);
-                    databaseID = user.firstName;
                     firstName_text.setText(user.firstName);
                     lastName_text.setText(user.lastName);
                     email_text.setText(user.email);
@@ -183,10 +183,10 @@ public class EditProfileActivity extends AppCompatActivity {
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         if (user != null) {
-                            String userName = mAuth.getCurrentUser().getDisplayName().split(" ")[0];
-                            mFirebaseDatabase.child(userName).child("firstName").setValue(firstName);
-                            mFirebaseDatabase.child(userName).child("lastName").setValue(lastName);
-                            mFirebaseDatabase.child(userName).child("accountType").setValue(accountType);
+                            String userID = mAuth.getCurrentUser().getUid();
+                            mFirebaseDatabase.child(userID).child("firstName").setValue(firstName);
+                            mFirebaseDatabase.child(userID).child("lastName").setValue(lastName);
+                            mFirebaseDatabase.child(userID).child("accountType").setValue(accountType);
 //                            if(!getIntent().hasExtra("GoogleSigned")) {
 //                                mFirebaseDatabase.child(userName).child("password").setValue(password);
 //                            mFirebaseDatabase.child(userName).child("email").setValue(email);
