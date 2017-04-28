@@ -39,7 +39,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="38dp"
-                android:text="Against " />
+                android:text="Against (Y-axis) " />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="38dp"
-                android:text="And against (Optional)" />
+                android:text="And against(2nd Y-axis) (Optional)" />
 
             <Spinner
                 android:layout_width="match_parent"

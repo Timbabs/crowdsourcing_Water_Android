@@ -1,12 +1,17 @@
 package com.gatech.edu.soloTechno.m4_login.controllers;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.google.firebase.database.DataSnapshot;
@@ -54,7 +59,7 @@ public class HistoricalReportActivity extends FragmentActivity {
         ppmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ppmSpinner.setAdapter(ppmAdapter);*/
 
-        ArrayAdapter<String> ppmAdapter = new ArrayAdapter<String>(HistoricalReportActivity.this, android.R.layout.simple_spinner_item, options);
+        final ArrayAdapter<String> ppmAdapter = new ArrayAdapter<String>(HistoricalReportActivity.this, android.R.layout.simple_spinner_item, options);
         ppmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ppmSpinner.setAdapter(ppmAdapter);
 
@@ -108,10 +113,36 @@ public class HistoricalReportActivity extends FragmentActivity {
                 data1 = locationSpinner.getSelectedItem().toString().trim() == "select"? null: locationSpinner.getSelectedItem().toString().trim();
                 data3 = yearSpinner.getSelectedItem().toString().trim() == "select"? null: yearSpinner.getSelectedItem().toString().trim();
 
+                boolean cancel = false;
+                if(data1 == null) {
+                    TextView text= (TextView) findViewById(R.id.water_report_location);
+                    text.setError("Select an item");
+                    text.requestFocus();
+                    cancel = true;
+                }
+                if(data2 == null) {
+                    TextView text= (TextView) findViewById(R.id.water_type_spinner_text);
+                    text.setError("Select an item");
+                    text.requestFocus();
+                    cancel = true;
+                }
+                if(years.isEmpty() || virus.isEmpty() || contaminants.isEmpty()) {
+                    Toast toast =  Toast.makeText(HistoricalReportActivity.this, "You have no data to plot. Please submit more reports!",
+                            Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
+                    TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
+                    view.setTextColor(Color.RED);
+                    toast.show();
+                    cancel = true;
+
+                }
+
+                if(!cancel) {
+                    Intent graphDisplay = new Intent(HistoricalReportActivity.this, DisplayGraphActivity.class);
+                    startActivity(graphDisplay);
+                }
 
 
-                Intent graphDisplay = new Intent(HistoricalReportActivity.this, DisplayGraphActivity.class);
-                startActivity(graphDisplay);
 
 
             }

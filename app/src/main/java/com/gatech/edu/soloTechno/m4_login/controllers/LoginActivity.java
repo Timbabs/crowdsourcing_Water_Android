@@ -42,8 +42,6 @@ import android.widget.Toast;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.User;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -67,8 +65,6 @@ import com.google.android.gms.common.api.Status;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -98,9 +94,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
-    private String start = "false";
     private String account_Type = "User";
-    private boolean userExist;
 
 
     /**
@@ -235,19 +229,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         /**
          * Checks the current state of the user. Whether the user is still signed in or not
          */
-        /*mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(mainActivity);
-                } else {
-                    // User is signed out
-                }
-            }
-        };*/
 
 
 
@@ -359,8 +340,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
-
-        userExist = false;
 
         firstName = acct.getGivenName();
 
