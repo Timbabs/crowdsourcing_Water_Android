@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity
 
         String userID = mAuth.getCurrentUser().getUid();
 
-        mFirebaseDatabase.child( userID).addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 

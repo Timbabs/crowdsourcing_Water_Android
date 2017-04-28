@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseUser mFirebaseUser;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    static FirebaseAuth mAuth;
+    private  FirebaseAuth mAuth;
     public static final String TAG = RegisterActivity.class.getSimpleName();
     private ProgressDialog mAuthProgressDialog;
 
@@ -103,6 +104,11 @@ public class RegisterActivity extends AppCompatActivity {
          * Creates an object that accesses the tools provided in the Firebase Authentication SDK
          */
         mAuth = FirebaseAuth.getInstance();
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        // get reference to 'users' node
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+        // store app title to 'app_title' node
+        mFirebaseInstance.getReference("soloWater").setValue("Realtime Database");
 
         /*if (mAuth.getCurrentUser() != null) {
             ValueEventListener postListener = new ValueEventListener() {
@@ -241,6 +247,32 @@ public class RegisterActivity extends AppCompatActivity {
 
                             Log.d(TAG, "Authentication successful");
 
+                            UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(firstName)
+                                    .build();
+
+                            mAuth.getCurrentUser().updateProfile(addProfileName)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                //Log.d(TAG, user.getDisplayName());
+                                                Log.d(TAG, "");
+                                            }
+                                        }
+
+                                    });
+
+
+
+                            //userId = mAuth.getCurrentUser().getUid();
+                            //userId = mFirebaseDatabase.push().getKey();
+
+                            final User mUser = new User(firstName, lastName, accountType, email, "");
+
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).setValue(mUser);
+
 
                             //    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                             //   startActivity(mainActivity);
@@ -361,37 +393,14 @@ public class RegisterActivity extends AppCompatActivity {
      */
     private void createFirebaseUserProfile(final FirebaseUser user) {
 
-        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                .setDisplayName(firstName)
-                .build();
 
-        user.updateProfile(addProfileName)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
 
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            //Log.d(TAG, user.getDisplayName());
-                            Log.d(TAG, "");
-                        }
-                    }
 
-                });
 
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        // get reference to 'users' node
-        mFirebaseDatabase = mFirebaseInstance.getReference("users");
-        // store app title to 'app_title' node
-        mFirebaseInstance.getReference("soloWater").setValue("Realtime Database");
 
-            //userId = mAuth.getCurrentUser().getUid();
-            //userId = mFirebaseDatabase.push().getKey();
 
-        final User mUser = new User(firstName, lastName, accountType, email, "");
-        //make this final later
-        String id = user.getUid();
-        mFirebaseDatabase.child(id).setValue(mUser);
-        mAuth.removeAuthStateListener(mAuthListener);
+
+       // mAuth.removeAuthStateListener(mAuthListener);
 
 
     }

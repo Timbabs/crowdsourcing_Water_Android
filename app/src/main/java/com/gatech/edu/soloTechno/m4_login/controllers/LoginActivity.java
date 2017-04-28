@@ -55,6 +55,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.ProviderQueryResult;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -98,13 +100,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private static final int RC_SIGN_IN = 9001;
     private String start = "false";
     private String account_Type = "User";
+    private boolean userExist;
 
 
     /**
      * Creates an instance of Firebase authentication
      */
-    static FirebaseAuth mAuth;
-    static FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
+        FirebaseDatabase.getInstance().getReference("soloWater").setValue("Realtime Database");
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -143,19 +147,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         signInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(@NonNull Status status) {
+                            }
+                        });
 
                 signIn();
 
-
-                if(getIntent().hasExtra("GoogleSigned") || start.equals("false")){
-                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                            new ResultCallback<Status>() {
-                                @Override
-                                public void onResult(@NonNull Status status) {
-                                }
-                            });
-
-                }
             }
 
         });
@@ -284,45 +284,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         }
     }
 
-    // [END onactivityresult]
-
-    // [START auth_with_google]
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-        // [START_EXCLUDE silent]
-        showProgressDialog();
-        // [END_EXCLUDE]
-
-        firstName = acct.getGivenName();
-
-        lastName = acct.getFamilyName();
-        email = acct.getEmail();
-
-        final User mUser = new User(firstName, lastName, "User", email, "");
-
-
-
-        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(!dataSnapshot.exists()) {
-                    mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).setValue(mUser);
-
-                } else {
-                    User user = dataSnapshot.getValue(User.class);
-                    account_Type = user.accountType;
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
+    private void helper(final GoogleSignInAccount acct, final User mUser) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -331,6 +293,26 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
+
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if(!dataSnapshot.exists()) {
+                                        mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).setValue(mUser);
+
+                                    } else {
+                                        User user = dataSnapshot.getValue(User.class);
+                                        account_Type = user.accountType;
+
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
                             mAuthListener = new FirebaseAuth.AuthStateListener() {
                                 @Override
                                 public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -342,6 +324,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                     }
                                 }
                             };
+                            mAuth.addAuthStateListener(mAuthListener);
 
                             Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
 
@@ -361,9 +344,54 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         hideProgressDialog();
 
                         // [END_EXCLUDE]
-                        mAuth.addAuthStateListener(mAuthListener);
+
                     }
                 });
+
+
+
+
+    }
+
+    // [START auth_with_google]
+    private void firebaseAuthWithGoogle(final GoogleSignInAccount acct) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        // [START_EXCLUDE silent]
+        showProgressDialog();
+        // [END_EXCLUDE]
+
+        userExist = false;
+
+        firstName = acct.getGivenName();
+
+        lastName = acct.getFamilyName();
+        email = acct.getEmail();
+
+        final User mUser = new User(firstName, lastName, "User", email, "");
+
+        mAuth.fetchProvidersForEmail(email).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+           //boolean result;
+            @Override
+            public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+
+                if (task.getResult().getProviders().size()> 0 && !task.getResult().getProviders().get(0).equals("google.com")) {
+                    //signUserIn(email);
+                    hideProgressDialog();
+                    Toast toast =  Toast.makeText(LoginActivity.this, "An account already exist with your Gmail address",
+                            Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 0);
+//            View view = toast.getView();
+//            view.setBackgroundColor(Color.BLACK);
+                    TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                    v.setTextColor(Color.RED);
+                    toast.show();
+                } else {
+                   helper(acct, mUser);
+                }
+
+            }
+
+        });
 
     }
 // [END auth_with_google]
