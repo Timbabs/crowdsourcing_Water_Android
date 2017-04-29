@@ -88,7 +88,7 @@ tools:context="com.gatech.edu.soloTechno.m4_login.controllers.LoginActivity">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
+               android:gravity="center"
                 android:layout_marginTop="30dp"
                 android:text="Sign in with your Google account instead?" />
 
@@ -97,7 +97,7 @@ tools:context="com.gatech.edu.soloTechno.m4_login.controllers.LoginActivity">
                 android:id="@+id/sign_in_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_gravity="center"
             />
 
             <Button
@@ -106,7 +106,8 @@ tools:context="com.gatech.edu.soloTechno.m4_login.controllers.LoginActivity">
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="120dp"
-                android:layout_marginLeft="95dp"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_weight="0.97"
                 android:text="Forgot Password?"
                 android:textStyle="bold" />

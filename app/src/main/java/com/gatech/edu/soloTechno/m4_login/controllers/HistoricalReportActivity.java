@@ -115,29 +115,33 @@ public class HistoricalReportActivity extends FragmentActivity {
 
                 boolean cancel = false;
                 if(data1 == null) {
-                    TextView text= (TextView) findViewById(R.id.water_report_location);
-                    text.setError("Select an item");
-                    text.requestFocus();
+                   TextView errorText = (TextView)locationSpinner.getSelectedView();
+                    errorText.setError("");
+                    errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                    errorText.setText("Select an item");
                     cancel = true;
+
                 }
                 if(data2 == null) {
-                    TextView text= (TextView) findViewById(R.id.water_type_spinner_text);
-                    text.setError("Select an item");
-                    text.requestFocus();
+                    TextView errorText = (TextView)ppmSpinner.getSelectedView();
+                    errorText.setError("");
+                    errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                    errorText.setText("Select an item");
                     cancel = true;
+                }
+
+                if(cancel) {
+                    return;
                 }
                 if(years.isEmpty() || virus.isEmpty() || contaminants.isEmpty()) {
                     Toast toast =  Toast.makeText(HistoricalReportActivity.this, "You have no data to plot. Please submit more reports!",
                             Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
+                    toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 0);
                     TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
                     view.setTextColor(Color.RED);
                     toast.show();
-                    cancel = true;
 
-                }
-
-                if(!cancel) {
+                } else {
                     Intent graphDisplay = new Intent(HistoricalReportActivity.this, DisplayGraphActivity.class);
                     startActivity(graphDisplay);
                 }

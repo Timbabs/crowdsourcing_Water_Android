@@ -275,15 +275,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
 
+
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     if(!dataSnapshot.exists()) {
                                         mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).setValue(mUser);
-
-                                    } else {
-                                        User user = dataSnapshot.getValue(User.class);
-                                        account_Type = user.accountType;
 
                                     }
 
@@ -307,10 +304,26 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             };
                             mAuth.addAuthStateListener(mAuthListener);
 
-                            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
 
-                            mainActivity.putExtra("ACCOUNT_TYPE", account_Type);
-                            startActivity(mainActivity);
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                   User user = dataSnapshot.getValue(User.class);
+                                    System.out.println(user.accountType);
+                                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                    mainActivity.putExtra("ACCOUNT_TYPE", user.accountType);
+                                    startActivity(mainActivity);
+
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
 
 
 
@@ -353,7 +366,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onComplete(@NonNull Task<ProviderQueryResult> task) {
 
-                if (task.getResult().getProviders().size()> 0 && !task.getResult().getProviders().get(0).equals("google.com")) {
+                if (task.getResult().getProviders().size()> 0 && !task.getResult().getProviders().contains("google.com")) {
                     //signUserIn(email);
                     hideProgressDialog();
                     Toast toast =  Toast.makeText(LoginActivity.this, "An account already exist with your Gmail address",
