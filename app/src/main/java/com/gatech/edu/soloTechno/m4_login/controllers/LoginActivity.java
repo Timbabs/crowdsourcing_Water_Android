@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private String firstName;
     private String lastName;
     private String email;
+    static GoogleSignInAccount signInAccount;
 
     // UI references. ..
     private AutoCompleteTextView mEmailView;
@@ -94,7 +95,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
-    private String account_Type = "User";
 
 
     /**
@@ -250,9 +250,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
             if (result.isSuccess()) {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
+                signInAccount = account;
                 firebaseAuthWithGoogle(account);
 
 
@@ -265,7 +267,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         }
     }
 
-    private void helper(final GoogleSignInAccount acct, final User mUser) {
+    private void helperSignIn(final GoogleSignInAccount acct, final User mUser) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -305,14 +307,16 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             mAuth.addAuthStateListener(mAuthListener);
 
 
-                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                   User user = dataSnapshot.getValue(User.class);
-                                    System.out.println(user.accountType);
-                                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                    mainActivity.putExtra("ACCOUNT_TYPE", user.accountType);
-                                    startActivity(mainActivity);
+                                    if(dataSnapshot.getValue(User.class) != null) {
+                                        User user = dataSnapshot.getValue(User.class);
+                                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                        mainActivity.putExtra("ACCOUNT_TYPE", user.accountType);
+                                        startActivity(mainActivity);
+                                    }
+
 
 
                                 }
@@ -354,6 +358,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         showProgressDialog();
         // [END_EXCLUDE]
 
+
         firstName = acct.getGivenName();
 
         lastName = acct.getFamilyName();
@@ -378,7 +383,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     v.setTextColor(Color.RED);
                     toast.show();
                 } else {
-                   helper(acct, mUser);
+                   helperSignIn(acct, mUser);
                 }
 
             }
@@ -697,12 +702,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                User user = dataSnapshot.getValue(User.class);
-                                String accountType = user.accountType;
+                                if(dataSnapshot.getValue(User.class)!=null) {
+                                    User user = dataSnapshot.getValue(User.class);
+                                    String accountType = user.accountType;
 
-                                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                mainActivity.putExtra("ACCOUNT_TYPE", accountType);
-                                startActivity(mainActivity);
+                                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                                    mainActivity.putExtra("ACCOUNT_TYPE", accountType);
+                                    startActivity(mainActivity);
+                                }
+
 
                             }
 

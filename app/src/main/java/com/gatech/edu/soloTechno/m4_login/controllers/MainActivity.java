@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.User;
@@ -85,6 +86,16 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if(getIntent().hasExtra("INFO_UPDATE")){
+            Toast toast =  Toast.makeText(MainActivity.this, "Profile info Updated! ",
+                    Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+            v.setTextColor(Color.RED);
+            toast.show();
+
+        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
