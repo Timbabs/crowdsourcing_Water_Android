@@ -110,24 +110,6 @@ public class RegisterActivity extends AppCompatActivity {
         // store app title to 'app_title' node
         mFirebaseInstance.getReference("soloWater").setValue("Realtime Database");
 
-        /*if (mAuth.getCurrentUser() != null) {
-            ValueEventListener postListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    lastName_text.setText((CharSequence) dataSnapshot.child("Last Name").getValue());
-                }
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    // Getting Post failed, log a message
-                    Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                    // ...
-                }
-            };
-            mFirebaseDatabase.addValueEventListener(postListener);
-        }*/
-
-
-
 
         /**
          * Creates a save button and defines an on-click listener than calls the submitForm method
@@ -166,11 +148,6 @@ public class RegisterActivity extends AppCompatActivity {
                 createAuthProgressDialog();
                 mAuthProgressDialog.show();
 
-
-              //  if(mAuth.getCurrentUser() != null){
-               //     mAuth.getCurrentUser().updatePassword(confirmPassword);
-                //} else {
-                    //create user
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -194,8 +171,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     }
                                 }
                             });
-               // }
-                createAuthStateListener();
 
             }
         });
@@ -247,28 +222,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                             Log.d(TAG, "Authentication successful");
 
-                            UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(firstName)
-                                    .build();
-
-                            mAuth.getCurrentUser().updateProfile(addProfileName)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                //Log.d(TAG, user.getDisplayName());
-                                                Log.d(TAG, "");
-                                            }
-                                        }
-
-                                    });
-
-
-
-                            //userId = mAuth.getCurrentUser().getUid();
-                            //userId = mFirebaseDatabase.push().getKey();
-
                             final User mUser = new User(firstName, lastName, accountType, email, "");
 
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).setValue(mUser);
@@ -285,29 +238,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
-
-    private void createAuthStateListener() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    createFirebaseUserProfile(mAuth.getCurrentUser());
-
-
-
-                    /*Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();*/
-                }
-            }
-
-
-        };
-        mAuth.addAuthStateListener(mAuthListener);
     }
 
     /**
@@ -391,19 +321,5 @@ public class RegisterActivity extends AppCompatActivity {
      * greet the user once he or she successfully logs in.
      * @param user current user that was just recently created
      */
-    private void createFirebaseUserProfile(final FirebaseUser user) {
-
-
-
-
-
-
-
-
-       // mAuth.removeAuthStateListener(mAuthListener);
-
-
-    }
-
 }
 

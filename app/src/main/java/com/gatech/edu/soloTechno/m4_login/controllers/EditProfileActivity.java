@@ -153,9 +153,6 @@ public class EditProfileActivity extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                createAuthProgressDialog();
-               // mAuthProgressDialog.show();
-
                 //get user's info
                 accountType = accountTypeSpinner.getSelectedItem().toString().trim();
                 email = email_text.getText().toString().trim();
@@ -226,8 +223,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
                         AuthCredential authCredential;
                         if(mAuth.getCurrentUser().getProviderData().get(1).getProviderId().equals("google.com")) {
-                            System.out.println(LoginActivity.signInAccount.getIdToken());
-                            System.out.println(LoginActivity.signInAccount.getId());
                             authCredential = GoogleAuthProvider.getCredential(LoginActivity.signInAccount.getIdToken(), null);
                             //authCredential = GoogleAuthProvider.getCredential(mAuth.getCurrentUser().getEmail(), myPassword);
 
@@ -259,30 +254,13 @@ public class EditProfileActivity extends AppCompatActivity {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful()) {
-                                                                UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                                                                        .setDisplayName(firstName)
-                                                                        .build();
-
-                                                                mAuth.getCurrentUser().updateProfile(addProfileName)
-                                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                                                                            @Override
-                                                                            public void onComplete(@NonNull Task<Void> task) {
-                                                                                if (task.isSuccessful()) {
-                                                                                    mAuth.removeAuthStateListener(mAuthListener);
-                                                                                    hideProgressDialog();
-                                                                                    Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
-                                                                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                                                    intent.putExtra("ACCOUNT_TYPE", accountType);
-                                                                                    intent.putExtra("INFO_UPDATE", "true");
-                                                                                    startActivity(intent);
-                                                                                    Log.d(TAG, "");
-                                                                                }
-                                                                            }
-
-                                                                        });
-                                                            } else {
-                                                                Log.d(TAG, "Error password not updated");
+                                                                mAuth.removeAuthStateListener(mAuthListener);
+                                                                hideProgressDialog();
+                                                                Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                                                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                                intent.putExtra("ACCOUNT_TYPE", accountType);
+                                                                intent.putExtra("INFO_UPDATE", "true");
+                                                                startActivity(intent);
                                                             }
                                                         }
                                                     });
@@ -295,30 +273,17 @@ public class EditProfileActivity extends AppCompatActivity {
                                                                     @Override
                                                                     public void onComplete(@NonNull Task<Void> task) {
                                                                         if (task.isSuccessful()) {
-                                                                            UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                                                                                    .setDisplayName(firstName)
-                                                                                    .build();
+                                                                            mAuth.removeAuthStateListener(mAuthListener);
+                                                                            hideProgressDialog();
+                                                                            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                                                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                                            intent.putExtra("ACCOUNT_TYPE", accountType);
+                                                                            intent.putExtra("INFO_UPDATE", "true");
+                                                                            startActivity(intent);
+                                                                            Log.d(TAG, "");
 
-                                                                            mAuth.getCurrentUser().updateProfile(addProfileName)
-                                                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                                                                                        @Override
-                                                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                                                            if (task.isSuccessful()) {
-                                                                                                mAuth.removeAuthStateListener(mAuthListener);
-                                                                                                hideProgressDialog();
-                                                                                                Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
-                                                                                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                                                                intent.putExtra("ACCOUNT_TYPE", accountType);
-                                                                                                intent.putExtra("INFO_UPDATE", "true");
-                                                                                                startActivity(intent);
-                                                                                                Log.d(TAG, "");
-                                                                                            }
-                                                                                        }
-
-                                                                                    });
                                                                         } else {
-                                                                            Log.d(TAG, "Error password not updated");
+                                                                            Log.d(TAG, "Error Email not updated");
                                                                         }
                                                                     }
                                                                 });
@@ -330,9 +295,6 @@ public class EditProfileActivity extends AppCompatActivity {
                                                     });
 
                                                 }
-
-
-
 
                                             }
 
@@ -366,29 +328,98 @@ public class EditProfileActivity extends AppCompatActivity {
         delete_Account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDeleteProgressDialog();
-                FirebaseUser user = mAuth.getCurrentUser();
 
-                user.delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    hideDeleteProgressDialog();
-                                    Log.d(TAG, "User account deleted.");
-//                                    TextView status_Msg = (TextView) findViewById(R.id.account_status);
-//                                    status_Msg.setText("User Account Deleted");
-//                                    status_Msg.setTextColor(Color.RED);
-                                    mFirebaseDatabase.child(databaseID).removeValue();
-                                    Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                                    logoutActivity.putExtra("Deleted", true);
-                                    logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(logoutActivity);
-                                } else {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(EditProfileActivity.this);
 
-                                }
-                            }
-                        });
+                alert.setTitle("User Validation");
+                alert.setMessage("Enter your current password");
+
+                // Set an EditText view to get user input
+                final EditText currentPassword = new EditText(EditProfileActivity.this);
+                currentPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                currentPassword.setHint("Current Password");
+                LinearLayout layout = new LinearLayout(getApplicationContext());
+                layout.setOrientation(LinearLayout.VERTICAL);
+                layout.addView(currentPassword);
+                alert.setView(layout);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+                final AlertDialog dialog = alert.create();
+
+                dialog.show();
+
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View v) {
+
+                         String myPassword;
+                         if(currentPassword.getText().toString().isEmpty()) {
+                             myPassword = "1";
+                         } else {
+                             myPassword = currentPassword.getText().toString();
+                         }
+
+                         AuthCredential authCredential;
+                         if(mAuth.getCurrentUser().getProviderData().get(1).getProviderId().equals("google.com")) {
+                             authCredential = GoogleAuthProvider.getCredential(LoginActivity.signInAccount.getIdToken(), null);
+                             //authCredential = GoogleAuthProvider.getCredential(mAuth.getCurrentUser().getEmail(), myPassword);
+
+                         } else {
+                             authCredential = EmailAuthProvider.getCredential(mAuth.getCurrentUser().getEmail(), myPassword);
+
+                         }
+                         mAuth.getCurrentUser().reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                             @Override
+                             public void onComplete(@NonNull Task<Void> task) {
+                                 if (task.isSuccessful()) {
+
+                                     showDeleteProgressDialog();
+                                     FirebaseUser user = mAuth.getCurrentUser();
+
+                                     user.delete()
+                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                 @Override
+                                                 public void onComplete(@NonNull Task<Void> task) {
+                                                     if (task.isSuccessful()) {
+                                                         hideDeleteProgressDialog();
+                                                         Log.d(TAG, "User account deleted.");
+                                                         //                                    TextView status_Msg = (TextView) findViewById(R.id.account_status);
+                                                         //                                    status_Msg.setText("User Account Deleted");
+                                                         //                                    status_Msg.setTextColor(Color.RED);
+                                                         mFirebaseDatabase.child(databaseID).removeValue();
+                                                         Intent logoutActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                                                         logoutActivity.putExtra("Deleted", true);
+                                                         logoutActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                         startActivity(logoutActivity);
+                                                     } else {
+
+                                                     }
+                                                 }
+                                             });
+                                 } else {
+                                     currentPassword.setError("Invalid password");
+                                     currentPassword.requestFocus();
+                                 }
+                             }
+                         });
+                     }
+                 });
+
+
+
+
+
             }
         });
 
@@ -435,12 +466,6 @@ public class EditProfileActivity extends AppCompatActivity {
         //finish();
     }
 
-    private void createAuthProgressDialog() {
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading...");
-        mAuthProgressDialog.setMessage("Updating info...");
-        mAuthProgressDialog.setCancelable(false);
-    }
 
     /**
      * Uses an Android pattern to check if an entered email is in the correct format. If the email

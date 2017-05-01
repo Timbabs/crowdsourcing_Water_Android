@@ -293,19 +293,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                                 }
                             });
-                            mAuthListener = new FirebaseAuth.AuthStateListener() {
-                                @Override
-                                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    if(user!=null){
-                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                                .setDisplayName(firstName).build();
-                                        user.updateProfile(profileUpdates);
-                                    }
-                                }
-                            };
-                            mAuth.addAuthStateListener(mAuthListener);
-
 
                             mFirebaseDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                                 @Override
@@ -317,8 +304,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                         startActivity(mainActivity);
                                     }
 
-
-
                                 }
 
                                 @Override
@@ -326,10 +311,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                                 }
                             });
-
-
-
-
 
                         } else {
                             // If sign in fails, display a message to the user.

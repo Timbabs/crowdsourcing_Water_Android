@@ -25,9 +25,6 @@ import android.widget.Toast;
 
 import com.gatech.edu.soloTechno.m4_login.R;
 import com.gatech.edu.soloTechno.m4_login.model.User;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -125,7 +122,7 @@ public class MainActivity extends AppCompatActivity
 
 
         View header=navigationView.getHeaderView(0);
-        final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
+        //final ImageView image_filed = (ImageView) header.findViewById(R.id.imageField);
         final TextView user_field = (TextView)header.findViewById(R.id.userField);
         final TextView email_filed = (TextView) header.findViewById(R.id.emailField);
 
