@@ -3,8 +3,8 @@ An android crowdsourcing app that supports finding clean water and reporting on 
 
 |  |  |  |
 | --- | --- | --- |
-|<img align="left" width="300" height="450" src="https://user-images.githubusercontent.com/8041664/29012949-318b47c6-7b0d-11e7-8453-ec83e687b536.png"> | <img align="center" width="300" height="450" src="https://user-images.githubusercontent.com/8041664/29013158-16daa8d4-7b0f-11e7-9ac1-107b4bbc969d.png"> | <img align="top_right" width="300" height="450" src="https://user-images.githubusercontent.com/8041664/29013427-114e7402-7b11-11e7-8460-27038a938d7d.png"> |
+|<img width="252" alt="screen shot 2017-08-08 at 5 23 10 pm" src="https://user-images.githubusercontent.com/8041664/29095500-f77dba34-7c5e-11e7-8269-cd73112f6a58.png"> | <img width="252" alt="screen shot 2017-08-08 at 5 24 41 pm" src="https://user-images.githubusercontent.com/8041664/29095706-daec9a10-7c5f-11e7-930d-c49bc7b5e9a7.png"> | <img width="246" alt="screen shot 2017-08-08 at 5 38 57 pm" src="https://user-images.githubusercontent.com/8041664/29096009-0d1cba14-7c61-11e7-97a9-824c57ec6a05.png"> |
 
 |  |  |  |
 | --- | --- | --- |
-|<img align="left" width="300" height="450" src="https://user-images.githubusercontent.com/8041664/29014591-c60036dc-7b17-11e7-9bf2-19b63e3f217b.png"> | <img align="center" width="300" height="450" src="https://user-images.githubusercontent.com/8041664/29014605-db7cf0ae-7b17-11e7-86c7-f948ec5137cf.png"> | <img align="top_right" width="300" height="450" src="https://user-images.githubusercontent.com/8041664/29014707-8d710b60-7b18-11e7-9d8c-18fcb5b70cb1.png"> |
+|<img width="245" alt="screen shot 2017-08-08 at 5 26 07 pm" src="https://user-images.githubusercontent.com/8041664/29095826-52d2d9ea-7c60-11e7-9b3c-6f21814a40f5.png"> | <img width="246" alt="screen shot 2017-08-08 at 5 45 19 pm" src="https://user-images.githubusercontent.com/8041664/29096160-bdb8c69c-7c61-11e7-93ae-1c0dc675d723.png"> | <img width="240" alt="screen shot 2017-08-08 at 5 47 24 pm" src="https://user-images.githubusercontent.com/8041664/29096198-e010cf00-7c61-11e7-8a06-5986b3fc67b7.png"> |
